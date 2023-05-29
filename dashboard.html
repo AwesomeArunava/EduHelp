@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  
+</head>
+
+<body>
+  <header>
+    <button id="toggle-button">EduHelp</button>
+
+    <li class="profile">
+      <a href="#">
+        <img id="show-card-button" src="pp.jpg" alt="Profile picture">
+      </a>
+    </li>
+
+
+
+  </header>
+
+  <nav id="side-nav">
+    <ul>
+      <li style="display:flex;"><i class="fa-solid fa-house"></i><a href="#">Home</a></li>
+      <li style="display:flex;"><i class="fa-solid fa-user"></i> <a href="#">Profile</a></li>
+      <li style="display:flex;"><i class="fa-solid fa-graduation-cap"></i> <a href="#">Academic</a></li>
+      <li style="display:flex;"><i class="fa-sharp fa-solid fa-pencil"></i> <a href="#">Exam</a></li>
+      <li style="display:flex;"> <i class="fa-sharp fa-solid fa-book"></i> <a href="#">Course</a></li>
+      <li style="display:flex;"><i class="fa-solid fa-bell"></i> <a href="#">Notice</a></li>
+    </ul>
+  </nav>
+
+  <main class="main">
+    <div class="card" id="profile-card">
+      <img src="pp.jpg" alt="Profile Image" class="profile-image">
+      <h2 class="profile-name" id="profileName">John Doe</h2>
+      <p class="profile-bio" id="profileEmail">spider2854@gmail.com</p>
+      <button class="logout-button" id="logout">Logout</button>
+    </div>
+    <div class="main1">
+      <div class="course">
+        <h1>Courses Overview</h1>
+
+        <div class="courses">
+          <div class="subject">
+            <h3 class="Subject-Name">CC12 Internet Technology</h3>
+            <div class="attandence">
+              <h5>Attandence</h5>
+              <h5 class="persent">85%</h5>
+            </div>
+            <div class="teachers-data">
+              <img class="teacher-logo" src="pp.jpg" alt="">
+              <h4 class="teacher-name">Amrita Roy Chowdhuri</h4>
+            </div>
+          </div>
+
+          <div class="subject">
+            <h3 class="Subject-Name">CC12 Internet Technology</h3>
+            <div class="attandence">
+              <h5>Attandence</h5>
+              <h5 class="persent">85%</h5>
+            </div>
+            <div class="teachers-data">
+              <img class="teacher-logo" src="pp.jpg" alt="">
+              <h4 class="teacher-name">Amrita Roy Chowdhuri</h4>
+            </div>
+          </div>
+
+          <div class="subject">
+            <h3 class="Subject-Name">CC12 Internet Technology</h3>
+            <div class="attandence">
+              <h5>Attandence</h5>
+              <h5 class="persent">85%</h5>
+            </div>
+            <div class="teachers-data">
+              <img class="teacher-logo" src="pp.jpg" alt="">
+              <h4 class="teacher-name">Amrita Roy Chowdhuri</h4>
+            </div>
+          </div>
+
+          <div class="subject">
+            <h3 class="Subject-Name">CC12 Internet Technology</h3>
+            <div class="attandence">
+              <h5>Attandence</h5>
+              <h5 class="persent">85%</h5>
+            </div>
+            <div class="teachers-data">
+              <img class="teacher-logo" src="pp.jpg" alt="">
+              <h4 class="teacher-name">Amrita Roy Chowdhuri</h4>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <br>
+        <hr>
+        <div class="notice">
+          <h2>Notice</h2>
+          <div class="notices">
+            <img class="notice-image" src="pp.jpg" alt="">
+            <div class="notice-data">
+              <h3 class="notice-heading">Workshop on Microproccessor</h3>
+              <h4 class="notice-date">19 April</h4>
+            </div>
+
+          </div>
+          <div class="notices">
+            <img class="notice-image" src="pp.jpg" alt="">
+            <div class="notice-data">
+              <h3 class="notice-heading">Workshop on Microproccessor</h3>
+              <h4 class="notice-date">19 April</h4>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="calender">
+        <iframe
+          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FKolkata&showTitle=0&showNav=1&showPrint=0&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4tZ2IuaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043&color=%230B8043"
+          style="border: 0" width="300" height="300" frameborder="0" scrolling="no"></iframe>
+
+        <div class="Today">
+          <h2>Today</h2>
+          <h5>10:00 AM</h5>
+          <div class="class">
+            <h4 class="subline">Artificial Intaligence</h4>
+            <div class="teacher-deatails">
+              <img class="today-image" src="pp.jpg" alt="">
+              <h3 class="teacher">Amrita Roy Chowdhuri</h3>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+  </main>
+
+
+  <script src="https://kit.fontawesome.com/7ef29e0724.js" crossorigin="anonymous"></script>
+  <!-- <script src="login.js"> </script> -->
+  <script src="dashboard.js" type="module"></script>
+</body>
+
+</html>

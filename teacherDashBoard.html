@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="teacherDashBoard.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+</head>
+<body>
+	<header>
+		<button id="toggle-button">EduHelp</button>
+    
+    <li class="profile">
+      <a href="#">
+        <img id="show-card-button" src="pp.jpg" alt="Profile picture">
+      </a>
+    </li>
+   
+
+
+	</header>
+
+	<nav id="side-nav">
+		<ul>
+			<li style="display:flex;"><i class="fa-solid fa-house"></i><a href="#">Home</a></li>
+			<li style="display:flex;"><i class="fa-solid fa-graduation-cap"></i> <a href="#">Academic</a></li>
+			<li style="display:flex;"><i class="fa-sharp fa-solid fa-pencil"></i> <a href="#">Exam</a></li>
+      <li style="display:flex;"> <i class="fa-sharp fa-solid fa-book"></i> <a href="#">Course</a></li>
+      <li style="display:flex;"><i class="fa-solid fa-bell"></i>  <a href="#">Notice</a></li>
+		</ul>
+	</nav>
+	
+	<main class="main">
+      <div class="card" id="profile-card">
+      <img src="pp.jpg" alt="Profile Image" class="profile-image">
+      <h2 class="profile-name">Mr Islam</h2>
+      <p class="profile-bio">spider2854@gmail.com</p>
+      <button class="logout-button">Logout</button>
+      </div>
+    <div class="main1">
+      <div class="course">
+        <div class="course-head">
+
+        <h1>Courses Overview</h1>
+        <div class="addcourse" id="addCourse">
+          <img class="plus" src="plus.png">
+          <h4>Add Course</h4>
+        </div>
+        </div>
+    <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>     -->
+
+      <div class="courses">
+        <div class="subject">
+          <h3 class="Subject-Name">CC12 Internet Technology</h3>
+          <div class="attandence">
+            <h5>Total Student</h5>
+            <h5 class="persent">10</h5>
+          </div>
+          <div class="teachers-data">
+           <i class="fa-solid fa-eye" id="eye"></i>
+            <h4 class="teacher-name">View</h4>
+          </div>
+        </div>
+
+        <div class="subject">
+          <h3 class="Subject-Name">CC12 Internet Technology</h3>
+          <div class="attandence">
+            <h5>Total Student</h5>
+            <h5 class="persent">100</h5>
+          </div>
+          <div class="teachers-data">
+          <i class="fa-solid fa-eye" id="eye"></i>
+            <h4 class="teacher-name">View</h4>
+          </div>
+        </div>
+
+        <div class="subject">
+          <h3 class="Subject-Name">CC12 Internet Technology</h3>
+          <div class="attandence">
+            <h5>Total Student</h5>
+            <h5 class="persent">150</h5>
+          </div>
+          <div class="teachers-data">
+          <i class="fa-solid fa-eye" id="eye"></i>
+            <h4 class="teacher-name">View</h4>
+          </div>
+        </div>
+
+        <div class="subject">
+          <h3 class="Subject-Name">CC12 Internet Technology</h3>
+          <div class="attandence">
+            <h5>Total Student</h5>
+            <h5 class="persent">140</h5>
+          </div>
+          <div class="teachers-data">
+          <i class="fa-solid fa-eye" id="eye"></i>
+            <h4 class="teacher-name">View</h4>
+          </div>
+        </div>
+      </div>
+    
+    <br>
+    <br>
+    <hr>
+    <div class="notice">
+      <div class="notice-heading">
+          <h2>Notice</h2>
+          <div class="noticeupload">
+            <img style=" width: 30px; height: 30px; margin-left: -8px; margin-top: 18px;" src="upload.png" alt="">
+            <h4 style="font-size: 15px; margin-top: 25px;">Upload Notice</h4>
+          </div>
+      
+      </div>
+      
+      
+      <div class="notices">
+      <i class="fa-solid fa-eye" id="noticeView"></i>
+        <div class="notice-data">
+        <h3 class="notice-heading">View</h3>
+        <h4 class="notice-date">19 April</h4>
+        </div>
+        
+      </div>
+      <div class="notices">
+      <i class="fa-solid fa-eye" id="noticeView"></i>
+        <div class="notice-data">
+        <h3 class="notice-heading">View</h3>
+        <h4 class="notice-date">19 April</h4>
+      </div>
+    </div>
+   
+    </div>
+</div>
+<div class="calender">
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FKolkata&showTitle=0&showNav=1&showPrint=0&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4tZ2IuaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043&color=%230B8043" 
+        style="border: 0"
+        width="300"
+        height="300"
+        frameborder="0"
+        scrolling="no"></iframe>
+
+      <div class="Today">
+        <h2>Today</h2>
+        <h5>10:00 AM</h5>
+          <div class="class">
+            <h4 class="subline">Artificial Intaligence</h4>
+            <div class="teacher-deatails">
+            <i class="fa-solid fa-eye" id="todayRoutineView"></i>
+              <h3 class="teacher">View</h3>
+            </div>
+            
+          </div>
+      </div>
+
+    </div>
+	</main>
+	
+	<script src="dashboard.js"> </script>
+  <script src="https://kit.fontawesome.com/7ef29e0724.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
