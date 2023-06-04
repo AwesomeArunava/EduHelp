@@ -1,0 +1,28 @@
+body{
+    background-color: rgba(197, 227, 241, 0.516);
+}
+.logo-text{
+    font-weight: bold;
+}
+#text-logo{
+    color: rgb(17, 241, 17);
+}
+.nav-color{
+    background-color:#a5eef566;
+}
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .profile-name {
+    margin-top: 0;
+    font-size: 24px;
+  }
+  
+  .profile-bio {
+    margin-bottom: 20px;
+  }
