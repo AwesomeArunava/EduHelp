@@ -10,6 +10,7 @@
 
     <link rel="shortcut icon" href="images/cap.png" type="image/x-icon">
 
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -25,6 +26,7 @@
     />
     <link rel="stylesheet" href="bootDash.css" />
     <link rel="stylesheet" href="studentProfile.css" />
+    <script src="bootDash.js"></script>
     <title>EduHelp</title>
   </head>
   <body>
@@ -69,12 +71,12 @@
       </div>
       <div class="modal-body d-flex align-items-center flex-column">
         <img src="images/pp.jpg" alt="Profile Image" class="profile-image">
-        <h2 class="profile-name" id="profileName">John Doe</h2>
+        <h2 class="profile-name" id="profileName">Mr. Panda</h2>
         <p class="profile-bio" id="profileEmail">spider2854@gmail.com</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Logout</button>
+        <button type="button" class="btn btn-primary" id="logOut" onclick="loginPage()">Logout</button>
       </div>
     </div>
   </div>
@@ -82,7 +84,7 @@
 
   </header>
 
-    <main class="d-inline-flex align-items-start p-2 mt-3 w-100">
+    <main class="d-inline-flex align-items-start p-2 mt-3 w-100 ">
       <!-- side nav -->
       <div
         class="nav flex-column nav-pills w-25"

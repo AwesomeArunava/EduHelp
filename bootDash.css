@@ -3,13 +3,16 @@ body{
 }
 .logo-text{
     font-weight: bold;
+    text-shadow: 8px 10px 8px black;
 }
+
 #text-logo{
     color: rgb(17, 241, 17);
 }
 .nav-color{
-    background-color:#a5eef566;
+    background-color:#a5eef5a3;
 }
+
 .profile-image {
     width: 150px;
     height: 150px;
