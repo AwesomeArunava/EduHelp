@@ -3,7 +3,7 @@ body{
 }
 .logo-text{
     font-weight: bold;
-    text-shadow: 8px 10px 8px black;
+    /* text-shadow: 8px 10px 8px black; */
 }
 
 #text-logo{
@@ -29,3 +29,5 @@ body{
   .profile-bio {
     margin-bottom: 20px;
   }
+
+/* Add course Card */

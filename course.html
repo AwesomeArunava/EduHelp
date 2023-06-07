@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Classroom</title>
+  <style>
+    .card {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .card .form-group {
+      margin-bottom: 15px;
+    }
+
+    .card .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .card .form-group input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .card .form-group button {
+      padding: 10px 15px;
+      background-color:royalblue;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Create Classroom</h2>
+    <div class="form-group">
+      <label for="classroom-name">Classroom Name:</label>
+      <input type="text" id="classroom-name" placeholder="Enter classroom name">
+    </div>
+    <div class="form-group">
+      <label for="teacher-name">Teacher Name:</label>
+      <input type="text" id="teacher-name" placeholder="Enter teacher name">
+    </div>
+    <div class="form-group">
+      <label for="semester">Semester:</label>
+      <input type="text" id="semester" placeholder="Enter semester">
+    </div>
+    
+    <div class="form-group">
+      <button id="create-button">Create</button>
+    </div>
+  </div>
+
+  <script>
+    var createButton = document.getElementById('create-button');
+    createButton.addEventListener('click', function() {
+      var classroomName = document.getElementById('classroom-name').value;
+      var teacherName = document.getElementById('teacher-name').value;
+      var semester = document.getElementById('semester').value;
+      var classroomCode = generateClassroomCode();
+
+      // Create the card element
+      var card = document.createElement('div');
+      card.classList.add('card');
+
+      // Set the card content
+      card.innerHTML = `
+        <h2>Classroom Created</h2>
+        <p><strong>Classroom Name:</strong> ${classroomName}</p>
+        <p><strong>Teacher Name:</strong> ${teacherName}</p>
+        <p><strong>Semester:</strong> ${semester}</p>
+        <p><strong>Classroom Code:</strong> ${classroomCode}</p>
+      `;
+
+      // Append the card to the document body
+      document.body.appendChild(card);
+
+      // Reset the input fields
+      document.getElementById('classroom-name').value = '';
+      document.getElementById('teacher-name').value = '';
+      document.getElementById('semester').value = '';
+      document.getElementById('classroom-code').value = classroomCode;
+    });
+
+    function generateClassroomCode() {
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      var codeLength = 6;
+      var code = '';
+
+      for (var i = 0; i < codeLength; i++) {
+        var randomIndex = Math.floor(Math.random() * characters.length);
+        code += characters.charAt(randomIndex);
+      }
+
+      return code;
+    }
+  </script>
+</body>
+</html>
