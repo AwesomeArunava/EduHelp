@@ -1,0 +1,296 @@
+header {
+	background-color: #333;
+	padding: 20px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+  height: 4%;
+	z-index: 1;
+}
+
+#toggle-button {
+	color: #fff;
+	font-size: 20px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+#side-nav {
+	position: fixed;
+	top: 0;
+	left: 0px;
+	width: 250px;
+	height: 100%;
+	background-color: #333;
+	padding-top: 80px;
+	transition: all 0.3s ease;
+}
+
+#side-nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+#side-nav ul li a {
+	display: block;
+	color: #ffffff;
+	font-size: 18px;
+	padding: 10px;
+	text-decoration: none;
+}
+
+#side-nav ul li:hover {
+  background-color: rgb(77, 77, 43);
+  color: #111;
+}
+
+#side-nav ul li a:hover {
+  color: rgb(2, 0, 0);
+}
+
+#side-nav ul li{
+  width: 100%;
+  height: 30%;
+
+}
+#side-nav.show {
+	left: 0;
+}
+
+main {
+	margin-top: 80px;
+	padding: 20px;
+}
+
+.main{
+  margin-left: 20%;
+  
+}
+
+.subject{
+  width: 200px;
+  height: 150px;
+  /* border: 2px solid black; */
+  background-color: aliceblue;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.courses{
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;
+  width: 100%;
+  flex-basis: 33%;
+  
+}
+
+.main{
+  display: flex;
+  position: relative;
+  
+}
+
+.class{
+  width: 90%;
+  
+  background-color: #73dbdb;
+  height: 70px;
+  margin-left: 30px;
+}
+
+.subline{
+  font-size: 20px;
+  color: #fff;
+  margin-left: 8px;
+}
+
+.teacher{
+  margin-top: -12px;
+  font-size: 15px;
+  margin-left: 8px;
+}
+
+.today{
+  background-color: #d82828;
+  width: 100%;
+  height: 100%;
+}
+
+.notices{
+  width: 100%;
+  height:auto;
+  background-color: #73dbdb;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.main1{
+  margin-right: 3%;
+  display: flex;
+}
+
+/* profile pop up  */
+
+header {
+  /* background-color: #333; */
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+header li {
+  float: right;
+  margin-top: -2.5%;
+  margin-right: 2%;
+}
+
+header li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* header li a,.fa-solid:hover {
+  background-color: #111;
+} */
+
+header .profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* logout card */
+
+.card {
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  display: none;
+ position: absolute;
+ left: 769px;
+ top: -9px;
+ 
+ 
+  /* z-index: 9999; */
+  /* transform: translateY(20px); */
+ 
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.profile-name {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.profile-bio {
+  margin-bottom: 20px;
+}
+
+.logout-button {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* icon */
+.fa-solid{
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  margin-top: 11px;
+  margin-left: 5px;
+
+}
+
+/* subjects */
+
+.teachers-data{
+  display: flex;
+  margin-left: 8px;
+  margin-top: -20px;
+  gap: 5px;
+}
+
+.attandence{
+  display: flex;
+  margin-left: 10px;
+  margin-top: -30px;
+  gap: 5px;
+}
+
+.teacher-logo{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 8px;
+}
+
+.Subject-Name{
+  margin-left: 8px;
+}
+
+.teacher-name{
+  margin-top: 21px;
+  font-size: 14px;
+}
+
+/* today class */
+
+.teacher-deatails{
+  display: flex;
+  margin-left: 5px;
+}
+
+.today-image{
+  max-width: 35px;
+  max-height: 35px;
+  border-radius: 50%;
+  margin-top: -20px;
+  margin-left: 5px;
+}
+
+.persent{
+  background-color: #39f128;
+}
+
+.notice-image{
+  max-width: 50px;
+  max-height: 50px;
+  margin-left:10px ;
+  margin-top: 8px;
+  border-radius: 50%;
+}
+
+.notice-heading{
+  margin-left: 8px;
+}
+
+.notice-date{
+  font-size: 10px;
+  margin-left: 10px;
+  margin-top: -10px;
+}

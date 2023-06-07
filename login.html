@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="login.css">
-  <title>SignUp/SignIn</title>
+  <link rel="shortcut icon" href="images/FavIcon-icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/login.css">
+  <title>EduHelp-SignUp/SignIn</title>
 </head>
 
 <body>
@@ -57,7 +58,7 @@
     </div>
   </div>
 
-  <script src="login.js"></script>
+  <script src="js/login.js"></script>
   <script src="https://kit.fontawesome.com/7ef29e0724.js" crossorigin="anonymous"></script>
 
   <script type="module">
@@ -146,7 +147,7 @@
           // Signed in 
           const user = userCredential.user;
           if (user.emailVerified) {
-            alert("You are Sign In");
+            alert("Login Successful 👌");
             // uid fetch
             onAuthStateChanged(auth, (user) => {
               if (user) {

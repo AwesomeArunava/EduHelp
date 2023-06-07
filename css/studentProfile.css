@@ -1,0 +1,100 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  color: #000;
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+.student-profile .card {
+  border-radius: 10px;
+}
+
+.student-profile .card .card-header .profile_img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 10px auto;
+  border: 10px solid #ccc;
+  border-radius: 50%;
+}
+
+.student-profile .card h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.student-profile .card p {
+  font-size: 16px;
+  color: #000;
+}
+
+.student-profile .table th,
+.student-profile .table td {
+  font-size: 14px;
+  padding: 5px 10px;
+  color: #000;
+}
+
+.student-profile .card {
+  margin-bottom: 26px;
+}
+
+.edit {
+  margin-left: 11px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.general{
+  display: flex;
+  justify-content: space-between;
+}
+
+.save{
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  border-radius: 3px;
+  padding: 2px 20px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.save:hover{
+  background-color: white;
+  color: black;
+}
+#father_name,
+#reg,
+#address,
+#city,
+#ps,
+#dist,
+#state,
+#pin_code,
+#adhar,
+#contact_number,
+#academic_year,
+#gender,
+#dob,
+#religion,
+#blood,
+#department,
+#collage,
+#collage_roll,
+#sem,
+#session{
+  display: block;
+  pointer-events: none;
+  border: none;
+ 
+  
+}
+
