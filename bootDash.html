@@ -8,7 +8,8 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <link rel="shortcut icon" href="images/cap.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/FavIcon-icon.png" type="image/x-icon">
+
 
     <!-- Bootstrap CSS -->
     <link
@@ -23,8 +24,9 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="bootDash.css" />
-    <link rel="stylesheet" href="studentProfile.css" />
+    <link rel="stylesheet" href="css/bootDash.css" />
+    <link rel="stylesheet" href="css/studentProfile.css" />
+    <script src="js/bootDash.js"></script>
     <title>EduHelp</title>
   </head>
   <body>
@@ -33,9 +35,9 @@
     <nav class="navbar nav-color">
       <a class="navbar-brand ml-4" href="#">
         <img
-          src="images/cap.png"
-          width="35"
-          height="35"
+          src="images/Eduhelp-logo.png"
+          width="40"
+          height="40"
           class="d-inline-block align-top"
           alt=""
         />
@@ -68,20 +70,24 @@
       </div>
       <div class="modal-body d-flex align-items-center flex-column">
         <img src="images/pp.jpg" alt="Profile Image" class="profile-image">
-        <h2 class="profile-name" id="profileName">John Doe</h2>
+        <h2 class="profile-name" id="profileName">Mr. Panda</h2>
         <p class="profile-bio" id="profileEmail">spider2854@gmail.com</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Logout</button>
+        <button type="button" class="btn btn-primary" id="logOut" onclick="loginPage()">Logout</button>
       </div>
     </div>
+
+  <!-- <div nav-image><a><img src="images/Eduhelp-logo.png" alt="Logo"></a></div> -->
+
   </div>
 </div>
 
+
   </header>
 
-    <main class="d-inline-flex align-items-start p-2 mt-3 w-100">
+    <main class="d-inline-flex align-items-start p-2 mt-3 w-100 ">
       <!-- side nav -->
       <div
         class="nav flex-column nav-pills w-25"
@@ -129,6 +135,16 @@
           aria-selected="false"
           >Event</a
         >
+        <a
+        class="nav-link"
+        id="v-pills-settings-tab"
+        data-toggle="pill"
+        href="#v-pills-settings"
+        role="tab"
+        aria-controls="v-pills-settings"
+        aria-selected="false"
+        >Notice</a
+      >
       </div>
       <!-- side nav content -->
       <div class="tab-content w-100" id="v-pills-tabContent">
@@ -520,7 +536,7 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-    <script src="studentProfile.js"></script>
+    <script src="js/studentProfile.js"></script>
     <script
       src="https://kit.fontawesome.com/7ef29e0724.js"
       crossorigin="anonymous"

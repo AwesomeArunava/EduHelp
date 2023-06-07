@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/FavIcon-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/event.css">
+    <script src="js/event.js"></script>
+    <title>EduHelp-Event</title>
+</head>
+<body>
+    <div class="slider">
+        <div class="slides">
+          <div class="slide">
+            <img src="images/s1.png" alt="Slide 1">
+            <div class="caption">Caption for Slide 1</div>
+          </div>
+
+          <div class="slide">
+            <img src="images/s2.jpeg" alt="Slide 2">
+            <div class="caption">Caption for Slide 2</div>
+          </div>
+
+          <div class="slide">
+            <img src="images/s3.jpeg" alt="Slide 3">
+            <div class="caption">Caption for Slide 3</div>
+          </div>
+
+        </div>
+
+        <div class="controls">
+          <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+          <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+
+        <div class="dots">
+          <span class="dot active" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+      </div>
+    
+</body>
+</html>
