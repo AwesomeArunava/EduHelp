@@ -16,16 +16,15 @@
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/bootDash.css" />
   <link rel="stylesheet" href="css/studentProfile.css" />
+  <link rel="stylesheet" href="css/event.css">
   <script src="js/bootDash.js"></script>
+  <script src="js/event.js"></script>
   <title>EduHelp</title>
 </head>
 
-<<<<<<< HEAD
-=======
 <body>
 
   <header>
->>>>>>> 8699ab83289490fe91e9576bc51a5257ad49dea3
     <!-- Image and text -->
     <nav class="navbar nav-color">
       <a class="navbar-brand ml-4" href="#">
@@ -81,8 +80,8 @@
         aria-controls="v-pills-messages" aria-selected="false">Subject Change</a>
       <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
         aria-controls="v-pills-settings" aria-selected="false">Event</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-        aria-controls="v-pills-settings" aria-selected="false">Notice</a>
+        <a class="nav-link" id="v-pills-notice-tab" data-toggle="pill" href="#v-pills-notice" role="tab"
+        aria-controls="v-pills-notice" aria-selected="false">Notice</a>
     </div>
     <!-- side nav content -->
     <div class="tab-content w-100" id="v-pills-tabContent">
@@ -94,7 +93,7 @@
               <!-- Button trigger modal -->
               <div type="button" class="d-inline-flex mt-1" data-bs-toggle="modal" data-bs-target="#exampleModa2">
                 <img class="plus" width="42" height="42" src="images/plus.png" />
-                <h4 class="mt-2 ml-2">Add Course</h4>
+                <h4 class="mt-2 ml-2">Join Course</h4>
               </div>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabe1"
@@ -210,7 +209,7 @@
         <div class="student-profile py-2">
           <div class="container">
             <div class="row">
-              <div class="col-lg-4">
+              <div class="col-lg-5">
                 <div class="card shadow-sm">
                   <div class="edit" id="edit" onclick="show()">
                     <i class="fa-regular fa-pen-to-square"></i>
@@ -241,57 +240,57 @@
                     </h3>
                   </div>
                   <div class="card-body pt-0">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered pl-3">
                       <tr>
                         <th width="30%">Father's Name:</th>
                         <td width="2%">:</td>
-                        <td><input type="text" id="father_name" /></td>
+                        <td><input type="text" id="father_name" class="container"/></td>
                       </tr>
                       <tr>
                         <th width="30%">Address</th>
                         <td width="2%">:</td>
-                        <td><input type="text" id="address" /></td>
+                        <td><input type="text" id="address" class="container"/></td>
                       </tr>
                       <tr>
                         <th width="30%">City</th>
                         <td width="2%">:</td>
-                        <td><input type="text" id="city" /></td>
+                        <td><input type="text" id="city" class="container"/></td>
                       </tr>
                       <tr>
                         <th width="30%">P.S</th>
                         <td width="2%">:</td>
-                        <td><input type="text" id="ps" /></td>
+                        <td><input type="text" id="ps" class="container"/></td>
                       </tr>
                       <tr>
                         <th width="30%">Dist</th>
                         <td width="2%">:</td>
-                        <td><input type="text" id="dist" /></td>
+                        <td><input type="text" id="dist" class="container"/></td>
                       </tr>
                       <tr>
                         <th width="30%">State</th>
                         <td width="2%">:</td>
-                        <td><input type="text" id="state" /></td>
+                        <td><input type="text" id="state" class="container"/></td>
                       </tr>
                       <tr>
                         <th width="30%">Pin Code</th>
                         <td width="2%">:</td>
-                        <td><input type="text" id="pin_code" /></td>
+                        <td><input type="text" id="pin_code" class="container"/></td>
                       </tr>
                       <tr>
                         <th width="30%">Aadhar No</th>
                         <td width="2%">:</td>
-                        <td><input type="text" id="adhar" /></td>
+                        <td><input type="text" id="adhar" class="container"/></td>
                       </tr>
                       <tr>
                         <th width="30%">Contact No.</th>
                         <td width="2%">:</td>
-                        <td><input type="text" id="contact_number" /></td>
+                        <td><input type="text" id="contact_number" class="container"/></td>
                       </tr>
                     </table>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-8">
+              <div class="col-lg-7">
                 <div class="card shadow-sm">
                   <div class="card-header general bg-transparent border-0">
                     <h3 class="mb-0">
@@ -415,10 +414,45 @@
       </div>
       <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         Massages
+        <!-- surojit likh be -->
       </div>
       <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-        Settings
+        <div class=" container slider">
+          <div class="slides">
+            <div class="slide">
+              <img src="images/s1.png" alt="Slide 1">
+              <div class="caption">Caption for Slide 1</div>
+            </div>
+  
+            <div class="slide">
+              <img src="images/s2.jpeg" alt="Slide 2">
+              <div class="caption">Caption for Slide 2</div>
+            </div>
+  
+            <div class="slide">
+              <img src="images/s3.jpeg" alt="Slide 3">
+              <div class="caption">Caption for Slide 3</div>
+            </div>
+  
+          </div>
+  
+          <div class="controls">
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next mr-4" onclick="changeSlide(1)">&#10095;</a>
+          </div>
+  
+          <div class="dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+  
+        </div>
       </div>
+      <div class="tab-pane fade" id="v-pills-notice" role="tabpanel" aria-labelledby="v-pills-notice-tab">
+        hello
+      </div>
+      
     </div>
   </main>
 
@@ -437,6 +471,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <script src="js/studentProfile.js"></script>
+  
   <script src="https://kit.fontawesome.com/7ef29e0724.js" crossorigin="anonymous"></script>
 </body>
 
