@@ -441,6 +441,77 @@
       <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         Massages
         <!-- surojit likh be -->
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Subject Change Request</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    padding-left: 50px;
+                }
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                }
+                input[type="text"],
+                select {
+                    width: 200px;
+                    padding: 5px;
+                    margin-bottom: 10px;
+                }
+                input[type="submit"] {
+                    padding: 10px 20px;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Subject Change Request</h1>
+            <form id="subjectChangeForm" action="status.html" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="regNo">Registration No:</label>
+                <input type="text" id="regNo" name="regNo" required>
+                <label for="presentSubject">Present Subject:</label>
+                <select id="presentSubject" name="presentSubject" required>
+                    <option value="">Select present subject</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Science">Science</option>
+                    <option value="English">English</option>
+                    <option value="History">History</option>
+                </select>
+                <label for="newSubject">New Subject:</label>
+                <select id="newSubject" name="newSubject" required>
+                    <option value="">Select new subject</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Geography">Geography</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+
+            <script>
+                document.getElementById("subjectChangeForm").addEventListener("submit", function(event) {
+                    event.preventDefault(); // Prevent form submission
+                    var name = document.getElementById("name").value;
+                    var regNo = document.getElementById("regNo").value;
+                    var presentSubject = document.getElementById("presentSubject").value;
+                    var newSubject = document.getElementById("newSubject").value;
+
+                    // Save the form data in localStorage
+                    localStorage.setItem("name", name);
+                    localStorage.setItem("regNo", regNo);
+                    localStorage.setItem("presentSubject", presentSubject);
+                    localStorage.setItem("newSubject", newSubject);
+
+                    // Redirect to status.html
+                    window.location.href = "status.html";
+                });
+            </script>
+        </body>
+        </html>
+
       </div>
       <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
         <div class=" container slider">
