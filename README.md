@@ -1,3 +1,3 @@
 # EduHelp
 Eductional Application For Students &amp; Teachers
-add course ami surajit
+add course i am a contributer
