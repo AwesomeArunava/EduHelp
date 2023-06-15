@@ -206,7 +206,7 @@
             <div class="ml-3 mt-3">
               <h3>Notice</h3>
               <div class="alert alert-primary mt-3" role="alert">
-                <p>Notice Title</p>
+                <p id="receivedMessage">Notice Title</p>
               </div>
             </div>
           </div>
@@ -476,8 +476,35 @@
         </div>
       </div>
       <div class="tab-pane fade" id="v-pills-notice" role="tabpanel" aria-labelledby="v-pills-notice-tab">
-        hello
+
+        <!-- Notice section -->
+        <div class="ms-5">
+        <div class="section d-flex">
+          <label for="Streem">Choose a streem:</label>
+      
+          <select name="streem" id="streem" class=" ms-3">
+            <option value="Choose One">--Choose One--</option>
+            <option value="Science">Science</option>
+            <option value="Arts">Arts</option>
+            <option value="BCOM">BCOM</option>
+            <option value="All">All</option>
+          </select>
+        </div> <br>
+
+        <form id="messageForm">
+          
+          <label for="message">Title:</label>
+          <input type="text" id="message" name="message" required><br> <br>
+      
+          <label for="textArea">Write Your Notice:</label>
+          <textarea rows="10" cols="60" >
+      
+          </textarea> <br><br>
+      
+          <input type="submit" value="Send">
+        </form>
       </div>
+    </div>
       
     </div>
   </main>
