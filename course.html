@@ -95,18 +95,18 @@
       document.getElementById('classroom-code').value = classroomCode;
     });
 
-    // function generateClassroomCode() {
-    //   var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    //   var codeLength = 6;
-    //   var code = '';
+    function generateClassroomCode() {
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      var codeLength = 6;
+      var code = '';
 
-    //   for (var i = 0; i < codeLength; i++) {
-    //     var randomIndex = Math.floor(Math.random() * characters.length);
-    //     code += characters.charAt(randomIndex);
-    //   }
+      for (var i = 0; i < codeLength; i++) {
+        var randomIndex = Math.floor(Math.random() * characters.length);
+        code += characters.charAt(randomIndex);
+      }
 
-    //   return code;
-    // }
+      return code;
+    }
   </script>
 </body>
 </html>

@@ -17,8 +17,7 @@
   <link rel="stylesheet" href="css/bootDash.css" />
   <link rel="stylesheet" href="css/studentProfile.css" />
   <link rel="stylesheet" href="css/event.css">
-  <script src="js/bootDash.js"></script>
-  <script src="js/event.js"></script>
+ 
   <title>EduHelp</title>
 </head>
 
@@ -95,6 +94,7 @@
                 <img class="plus" width="42" height="42" src="images/plus.png" />
                 <h4 class="mt-2 ml-2">Join Course</h4>
               </div>
+              
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabe1"
                   aria-hidden="true">
@@ -130,16 +130,42 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                           Close
                         </button>
-                        <button type="button" class="btn btn-primary" id="create-button">
+                        <div class="form-group">
+                        <button type="button" class="btn btn-primary" id="create">
                           Create
                         </button>
+                      </div>
                       </div>
                     </div>
                   </div>
                 </div>
              
             </div>
-            <div class="row ml-1">
+            <div class="row ml-1" id="course-list">
+              <div class="col-sm-6 mt-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">
+                      With supporting text below as a natural lead-in to
+                      additional content.
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 mt-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">
+                      With supporting text below as a natural lead-in to
+                      additional content.
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
               <div class="col-sm-6 mt-3">
                 <div class="card">
                   <div class="card-body">
@@ -473,6 +499,8 @@
   <script src="js/studentProfile.js"></script>
   
   <script src="https://kit.fontawesome.com/7ef29e0724.js" crossorigin="anonymous"></script>
+  <script src="js/bootDash.js"></script>
+  <script src="js/event.js"></script>
 </body>
 
 </html>
