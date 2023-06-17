@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subject Change Request Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Subject Change Request Status</h1>
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td id="name"></td>
+        </tr>
+        <tr>
+            <td>Registration No:</td>
+            <td id="regNo"></td>
+        </tr>
+        <tr>
+            <td>Present Subject:</td>
+            <td id="presentSubject"></td>
+        </tr>
+        <tr>
+            <td>New Subject:</td>
+            <td id="newSubject"></td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td id="status"></td>
+        </tr>
+    </table>
+
+    <script>
+        // Retrieve the form data from localStorage
+        var name = localStorage.getItem("name");
+        var regNo = localStorage.getItem("regNo");
+        var presentSubject = localStorage.getItem("presentSubject");
+        var newSubject = localStorage.getItem("newSubject");
+
+        // Display the request details
+        document.getElementById("name").textContent = name;
+        document.getElementById("regNo").textContent = regNo;
+        document.getElementById("presentSubject").textContent = presentSubject;
+        document.getElementById("newSubject").textContent = newSubject;
+
+        // Add logic here to determine and display the status based on your requirements
+        var statusElement = document.getElementById("status");
+        // You can set the status dynamically based on your logic
+        var status = "Pending";
+        statusElement.textContent = status;
+
+        // Clear the form data from localStorage
+        localStorage.removeItem("name");
+        localStorage.removeItem("regNo");
+        localStorage.removeItem("presentSubject");
+        localStorage.removeItem("newSubject");
+    </script>
+</body>
+</html>

@@ -31,3 +31,19 @@ body{
   }
 
 /* Add course Card */
+
+/* Subject change */
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="text"],
+select {
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+input[type="submit"] {
+  padding: 10px 20px;
+}
