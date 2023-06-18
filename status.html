@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="images/FavIcon-icon.png" type="image/x-icon">
     <title>Subject Change Request Status</title>
     <style>
         body {
+            background-color: rgba(197, 227, 241, 0.516);
             font-family: Arial, sans-serif;
         }
         h1 {
@@ -18,14 +20,34 @@
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
+        h1{
+            color: #ddd;
+            text-shadow: 4px 8px 10px rgb(91, 243, 106);
+            padding: 20px;
+            background-color: rgb(101, 101, 213);
+        }
+        .headT{
+            font-size: 30px;
+        }
+        .statusTable{
+            text-align: center;
+            margin-left: 30px;
+        }
+        .dash {
+            margin-top: 20%;
+        }
+        .dash a:hover{
+        cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <h1>Subject Change Request Status</h1>
+    <center> <h1>Subject Change Request Status</h1> </center> <br>
+    <div class="statusTable">
     <table>
         <tr>
-            <th>Field</th>
-            <th>Value</th>
+            <th class="headT">Field</th>
+            <th class="headT">Value</th>
         </tr>
         <tr>
             <td>Name:</td>
@@ -48,6 +70,11 @@
             <td id="status"></td>
         </tr>
     </table>
+
+    <div class="dash">
+        <a href="bootDash.html">Dashboard</a>
+    </div>
+</div>
 
     <script>
         // Retrieve the form data from localStorage
