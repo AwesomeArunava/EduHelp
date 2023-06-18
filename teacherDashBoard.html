@@ -17,6 +17,10 @@
   <link rel="stylesheet" href="css/bootDash.css" />
   <link rel="stylesheet" href="css/studentProfile.css" />
   <script src="js/bootDash.js"></script>
+
+  <!-- for subjectchange_techer -->
+  <link rel="stylesheet" href="css/subchange_techer.css" />
+
   <title>EduHelp</title>
 </head>
 
@@ -411,7 +415,18 @@
         </div>
       </div>
       <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-        Massages
+    
+          <h1 class="ml-4">Subject Change Requests</h1>
+          <table class="ml-4" id="requestsTable">
+              <tr>
+                  <th>Name</th>
+                  <th>Registration No</th>
+                  <th>Present Subject</th>
+                  <th>New Subject</th>
+                  <th>Status</th>
+                  <th>Action</th>
+              </tr>
+          </table>
       </div>
       <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
         Settings
@@ -435,6 +450,10 @@
     crossorigin="anonymous"></script>
   <script src="js/studentProfile.js"></script>
   <script src="https://kit.fontawesome.com/7ef29e0724.js" crossorigin="anonymous"></script>
+
+<!-- For subject change request from students for teachers -->
+<script src="js/subchange_teacher.js"></script>
+
 </body>
 
 </html>
