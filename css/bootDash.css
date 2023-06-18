@@ -1,5 +1,6 @@
 body{
     background-color: rgba(197, 227, 241, 0.516);
+  
 }
 .logo-text{
     font-weight: bold;
@@ -61,4 +62,25 @@ input[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+
+/* choose file  */
+
+.bagImage>input{
+  display: none;
+
+}
+.bagImage img:hover{
+
+  cursor: pointer;
+  
+
+}
+input:hover{
+  cursor: pointer;
+}
+
+.submitBtn{
+  margin: -21px;
 }
