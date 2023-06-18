@@ -440,8 +440,31 @@
         </div>
       </div>
       <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-        Massages
         <!-- surojit likh be -->
+            <h1 class="ml-5">Subject Change Request</h1>
+            <form class="ml-5" id="subjectChangeForm" action="status.html" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="regNo">Registration No:</label>
+                <input type="text" id="regNo" name="regNo" required>
+                <label for="presentSubject">Present Subject:</label>
+                <select id="presentSubject" name="presentSubject" required>
+                    <option value="">Select present subject</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Science">Science</option>
+                    <option value="English">English</option>
+                    <option value="History">History</option>
+                </select>
+                <label for="newSubject">New Subject:</label>
+                <select id="newSubject" name="newSubject" required>
+                    <option value="">Select new subject</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Geography">Geography</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
       </div>
       <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
         <div class=" container slider">
@@ -539,6 +562,9 @@
   <script src="https://kit.fontawesome.com/7ef29e0724.js" crossorigin="anonymous"></script>
   <script src="js/bootDash.js"></script>
   <script src="js/event.js"></script>
+
+  <!-- subject change -->
+  <script src="js/subchange.js"></script>
 </body>
 
 </html>

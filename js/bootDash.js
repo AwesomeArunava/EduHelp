@@ -67,15 +67,3 @@ var logOut = document.getElementById("logOut");
 logOut.addEventListener("click", handleLogout);
 
 
-//For Notice SHOWING
-
-// JavaScript code
-    // Get the stored message from localStorage
-    const message = localStorage.getItem("message");
-
-    // Display the received message
-    const receivedMessageElement = document.getElementById("receivedMessage");
-    receivedMessageElement.textContent = message;
-
-    // Clear the message from localStorage (optional)
-    localStorage.removeItem("message");
