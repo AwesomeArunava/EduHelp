@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/bootDash.css" />
   <link rel="stylesheet" href="css/studentProfile.css" />
   <link rel="stylesheet" href="css/event.css">
+
  
   <title>EduHelp</title>
 </head>
@@ -206,7 +207,7 @@
             <div class="ml-3 mt-3">
               <h3>Notice</h3>
               <div class="alert alert-primary mt-3" role="alert">
-                A simple primary alert—check it out!
+                <p id="receivedMessage">Notice Title</p>
               </div>
             </div>
           </div>
@@ -499,8 +500,45 @@
         </div>
       </div>
       <div class="tab-pane fade" id="v-pills-notice" role="tabpanel" aria-labelledby="v-pills-notice-tab">
-        hello
+
+        <!-- Notice section -->
+
+        <div class="ms-5">
+        <div class="section ">
+          <label for="Streem">Choose a streem:</label>
+         <select name="streem" id="streem" class="p-2 ">
+            <option value="Choose One">--Select--</option>
+            <option value="Science">Sem-I</option>
+            <option value="Arts">Sem-II</option>
+            <option value="BCOM">Sem-III</option>
+            <option value="BCOM">Sem-IV</option>
+            <option value="BCOM">Sem-V</option>
+            <option value="BCOM">Sem-VI</option>
+           <option value="All">All</option>
+          </select>
+        </div> <br>
+
+        <form id="messageForm">
+          
+          <label for="message">Title:</label>
+          <input type="text" id="message" name="message" required><br> <br>
+          
+          <div class="SS"> 
+          <label for="textArea">Write Your Notice:</label>
+          <textarea rows="10" cols="60" >
+          </textarea> <br>
+
+          <div class="bagImage">
+            <label for="file-input">
+              <img src="images/choose.png" width="50" height="30" />
+            </label>
+            <input type="file" name="" id="file-input" > </div>
+        </div> <br><br>
+      
+          <input class="submitBtn" type="image" src="images/bttnn.png" alt="Submit" width="140" height="60" >
+        </form>
       </div>
+    </div>
       
     </div>
   </main>

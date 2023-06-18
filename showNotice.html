@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Receiver Page</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Receiver Page</h2>
+  <label for="">Message Title : </label>
+  <p id="receivedMessage"></p>
+
+  <script>
+    // JavaScript code
+    // Get the stored message from localStorage
+    const message = localStorage.getItem("message");
+
+    // Display the received message
+    const receivedMessageElement = document.getElementById("receivedMessage");
+    receivedMessageElement.textContent = message;
+
+    // Clear the message from localStorage (optional)
+    localStorage.removeItem("message");
+  </script>
+</body>
+</html>
