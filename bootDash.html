@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/bootDash.css" />
   <link rel="stylesheet" href="css/studentProfile.css" />
   <link rel="stylesheet" href="css/event.css">
+
  
   <title>EduHelp</title>
 </head>
@@ -478,16 +479,19 @@
       <div class="tab-pane fade" id="v-pills-notice" role="tabpanel" aria-labelledby="v-pills-notice-tab">
 
         <!-- Notice section -->
+
         <div class="ms-5">
-        <div class="section d-flex">
+        <div class="section ">
           <label for="Streem">Choose a streem:</label>
-      
-          <select name="streem" id="streem" class=" ms-3">
-            <option value="Choose One">--Choose One--</option>
-            <option value="Science">Science</option>
-            <option value="Arts">Arts</option>
-            <option value="BCOM">BCOM</option>
-            <option value="All">All</option>
+         <select name="streem" id="streem" class="p-2 ">
+            <option value="Choose One">--Select--</option>
+            <option value="Science">Sem-I</option>
+            <option value="Arts">Sem-II</option>
+            <option value="BCOM">Sem-III</option>
+            <option value="BCOM">Sem-IV</option>
+            <option value="BCOM">Sem-V</option>
+            <option value="BCOM">Sem-VI</option>
+           <option value="All">All</option>
           </select>
         </div> <br>
 
@@ -495,13 +499,20 @@
           
           <label for="message">Title:</label>
           <input type="text" id="message" name="message" required><br> <br>
-      
+          
+          <div class="SS"> 
           <label for="textArea">Write Your Notice:</label>
           <textarea rows="10" cols="60" >
+          </textarea> <br>
+
+          <div class="bagImage">
+            <label for="file-input">
+              <img src="images/choose.png" width="50" height="30" />
+            </label>
+            <input type="file" name="" id="file-input" > </div>
+        </div> <br><br>
       
-          </textarea> <br><br>
-      
-          <input type="submit" value="Send">
+          <input class="submitBtn" type="image" src="images/bttnn.png" alt="Submit" width="140" height="60" >
         </form>
       </div>
     </div>
