@@ -9,7 +9,7 @@ var requestsData = [
     },
     {
         name: "Rahul",
-        regNo: "67890",
+        regNo: "8116158818",
         presentSubject: "Chemistry",
         newSubject: "Biology",
         status: "Pending"
