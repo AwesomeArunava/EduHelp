@@ -440,29 +440,33 @@
         </div>
       </div>
       <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+
         <!-- surojit likh be -->
-            <h1 class="ml-5">Subject Change Request</h1>
+            <h1 class="ml-5 " >Subject Change Request</h1>
             <form class="ml-5" id="subjectChangeForm" action="status.html" method="post">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required><br><br>
+
                 <label for="regNo">Registration No:</label>
-                <input type="text" id="regNo" name="regNo" required>
+                <input type="text" id="regNo" name="regNo" required><br><br>
+
                 <label for="presentSubject">Present Subject:</label>
-                <select id="presentSubject" name="presentSubject" required>
+                <select id="presentSubject" class="p-2" name="presentSubject" required>
                     <option value="">Select present subject</option>
                     <option value="Mathematics">Mathematics</option>
                     <option value="Science">Science</option>
                     <option value="English">English</option>
                     <option value="History">History</option>
-                </select>
+                </select><br><br>
+
                 <label for="newSubject">New Subject:</label>
-                <select id="newSubject" name="newSubject" required>
+                <select class="p-2" id="newSubject" name="newSubject" required>
                     <option value="">Select new subject</option>
                     <option value="Physics">Physics</option>
                     <option value="Chemistry">Chemistry</option>
                     <option value="Biology">Biology</option>
                     <option value="Geography">Geography</option>
-                </select>
+                </select> <br> <br>
                 <input type="submit" value="Submit">
             </form>
       </div>
@@ -521,18 +525,19 @@
         <form id="messageForm">
           
           <label for="message">Title:</label>
-          <input type="text" id="message" name="message" required><br> <br>
+          <input class="" type="text" id="message" name="message" required><br> <br>
           
           <div class="SS"> 
           <label for="textArea">Write Your Notice:</label>
           <textarea rows="10" cols="60" >
           </textarea> <br>
-
+<!-- 
           <div class="bagImage">
             <label for="file-input">
               <img src="images/choose.png" width="50" height="30" />
-            </label>
-            <input type="file" name="" id="file-input" > </div>
+            </label> 
+          </div> -->
+          <input type="file" name="" id="file-input" > 
         </div> <br><br>
       
           <input class="submitBtn" type="image" src="images/bttnn.png" alt="Submit" width="140" height="60" >
