@@ -16,6 +16,7 @@
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/bootDash.css" />
   <link rel="stylesheet" href="css/studentProfile.css" />
+  <link rel="stylesheet" href="css/uploadNotice.css">
   <script src="js/bootDash.js"></script>
 
   <!-- for subjectchange_techer -->
@@ -85,8 +86,9 @@
       <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
         aria-controls="v-pills-settings" aria-selected="false">Event</a>
 
-      <a class="nav-link" id="v-pills-notice-tab" data-toggle="pill" href="#v-pills-notice" role="tab"
-        aria-controls="v-pills-notice" aria-selected="false">Notice</a>
+        <a class="nav-link" id="v-pills-notices-tab" data-toggle="pill" href="#v-pills-notices" role="tab"
+        aria-controls="v-pills-notices" aria-selected="false">Notice</a>
+
     </div>
     <!-- side nav content -->
     <div class="tab-content w-100" id="v-pills-tabContent">
@@ -429,8 +431,64 @@
           </table>
       </div>
       <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-        Settings
+       
+      <!-- event section  -->
+      <input type="file" id="upload" style="display: none;">
+      <div class="slider-container">
+        <div class="slider">
+          <div id="imageContainer"></div>
+        </div>
+        <button id="prevBtn">&lt;</button>
+        <button id="nextBtn">&gt;</button>
+        
+      </div> <br> <br> <br>
+    
+     <center> <button id="uploadBtn">Upload Photo</button> </center>
+    
+      <script src="uploadNotice.js"></script>
       </div>
+
+<!-- notice section -->
+      <div class="tab-pane fade" id="v-pills-notices" role="tabpanel" aria-labelledby="v-pills-notices-tab">
+    
+        <div class="ms-5">
+          <div class="section ">
+            <b><label for="Streem">Choose a streem:</label> </b>
+           <select name="streem" id="streem" class=" selectBtn p-2 ">
+              <option value="Choose One">--Select--</option>
+              <option value="Science">Sem-I</option>
+              <option value="Arts">Sem-II</option>
+              <option value="BCOM">Sem-III</option>
+              <option value="BCOM">Sem-IV</option>
+              <option value="BCOM">Sem-V</option>
+              <option value="BCOM">Sem-VI</option>
+             <option value="All">All</option>
+            </select>
+          </div> <br>
+  
+          <form id="messageForm">
+            
+           <b> <label for="message">Title:</label> </b>
+            <input class="message" type="text" id="message" name="message" required><br> <br>
+            
+            <div class="SS"> 
+            <b><label for="textArea">Write Your Notice:</label></b>
+            <textarea class="textArea" rows="10" cols="60" >
+            </textarea> <br>
+  <!-- 
+            <div class="bagImage">
+              <label for="file-input">
+                <img src="images/choose.png" width="50" height="30" />
+              </label> 
+            </div> -->
+            <input  class="uploadBtn" type="file" name="" id="file-input" > 
+          </div> <br><br>
+        
+          <button type="button" class="btn btn-primary">Submit Now</button>
+          </form>
+    </div>
+
+ 
     </div>
   </main>
 
@@ -450,6 +508,7 @@
     crossorigin="anonymous"></script>
   <script src="js/studentProfile.js"></script>
   <script src="https://kit.fontawesome.com/7ef29e0724.js" crossorigin="anonymous"></script>
+  <script src="js/uploadNotice.js"></script>
 
 <!-- For subject change request from students for teachers -->
 <script src="js/subchange_teacher.js"></script>
