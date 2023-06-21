@@ -12,6 +12,15 @@ th, td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    
+}
+th:hover {
+
+    color: rgb(253, 219, 126);
+    
+}
+button:hover{
+    background-color: rgba(225, 240, 14, 0.726);
 }
 .status-pending {
     color: orange;

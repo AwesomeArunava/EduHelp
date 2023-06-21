@@ -67,3 +67,5 @@ var logOut = document.getElementById("logOut");
 logOut.addEventListener("click", handleLogout);
 
 
+//Notice 
+
