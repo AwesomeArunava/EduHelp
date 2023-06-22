@@ -40,3 +40,6 @@ function myTimer() {
   document.getElementById("date").innerHTML = day + " " + month + " " + date.replace(/^0(?:0:0?)?/, '');
 	document.getElementById("time").innerHTML = t;
 };
+
+
+
