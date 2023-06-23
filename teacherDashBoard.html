@@ -21,6 +21,7 @@
 
   <!-- for subjectchange_techer -->
   <link rel="stylesheet" href="css/subchange_techer.css" />
+  <link rel="stylesheet" href="css/backGround.css">
 
   <title>EduHelp</title>
 </head>
@@ -72,13 +73,31 @@
 
   </header>
 
+    <!-- background animation  -->
+    <div class="area" >
+      <ul class="circles">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+
   <main class="d-inline-flex align-items-start p-2 mt-3 w-100 ">
     <!-- side nav -->
     <div class="nav flex-column nav-pills w-25" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
         aria-controls="v-pills-home" aria-selected="true">Home</a>
+
       <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
         aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+
+        <a class="nav-link" id="v-pills-attandence-tab" data-toggle="pill" href="#v-pills-attandence" role="tab"
+         aria-controls="v-pills-attandence" aria-selected="false">Attandence</a>
 
       <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
         aria-controls="v-pills-messages" aria-selected="false">Subject Change</a>
@@ -90,6 +109,7 @@
         aria-controls="v-pills-notices" aria-selected="false">Notice</a>
 
     </div>
+
     <!-- side nav content -->
     <div class="tab-content w-100" id="v-pills-tabContent">
       <div class="tab-pane fade show active w-100" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -182,7 +202,7 @@
               </div>
             </div>
             <div class="ml-3 mt-3">
-              <h3><a href="notice.html">Add Notice</a></h3>
+              <h3>Recent Notice</h3>
               <div class="alert alert-primary mt-3" role="alert">
                 <p id="title"> </p>
               </div>
@@ -400,6 +420,7 @@
           </div>
         </div>
       </div>
+
       <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
     
         <div class="container">
@@ -420,6 +441,15 @@
               </tr>
           </table>
       </div>
+
+
+
+      <div class="tab-pane fade" id="v-pills-attandence" role="tabpanel" aria-labelledby="v-pills-attandence-tab">
+        <!-- Attandence Section  -->
+        Attandance
+      </div>
+
+
       <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
        
       <!-- event section  -->
@@ -447,39 +477,35 @@
             </div>
           </div>
         </div> 
-
-        <div class="ms-5">
-          <div class="section ">
-            <b><label for="Streem">Choose a streem:</label> </b>
-           <select name="streem" id="streem" class=" selectBtn p-2 ">
-              <option value="Choose One">--Select--</option>
-              <option value="Science">Sem-I</option>
-              <option value="Arts">Sem-II</option>
-              <option value="BCOM">Sem-III</option>
-              <option value="BCOM">Sem-IV</option>
-              <option value="BCOM">Sem-V</option>
-              <option value="BCOM">Sem-VI</option>
-             <option value="All">All</option>
-            </select>
-          </div> <br>
   
           <form id="messageForm">
-            
-           <b> <label for="message">Title:</label> </b>
-            <input class="message" type="text" id="message" name="message" required><br> <br>
-            
-            <div class="SS"> 
-            <b><label for="textArea">Write Your Notice:</label></b>
-            <textarea class="textArea" rows="10" cols="60" >
-            </textarea> <br>
-  <!-- 
-            <div class="bagImage">
-              <label for="file-input">
-                <img src="images/choose.png" width="50" height="30" />
-              </label> 
-            </div> -->
-            <input  class="uploadBtn" type="file" name="" id="file-input" > 
-          </div> <br>
+            <div class="form-floating mb-3">
+              <textarea class="form-control" placeholder="Enter Notice Title" id="floatingTextareaDisabled" ></textarea>
+              <label for="floatingTextareaDisabled">Title</label>
+            </div>
+            <div class="form-floating mb-3">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2Disabled" style="height: 100px"></textarea>
+              <label for="floatingTextarea2Disabled">Write Your Notice</label>
+            </div>
+            <div class="form-floating">
+              <select class="form-select " id="floatingSelectDisabled" aria-label="Floating label disabled select example">
+                <option selected>Open this select menu</option>
+                <option value="1">Sem 1</option>
+                <option value="2">Sem 2</option>
+                <option value="3">Sem 3</option>
+                <option value="3">Sem 4</option>
+                <option value="3">Sem 5</option>
+                <option value="3">Sem 6</option>
+
+              </select>
+              <label for="floatingSelectDisabled">Select One</label>
+            </div> <br>
+
+            <div class="mb-3">
+              <label for=""></label>
+              <input class="form-control" type="file" id="formFile">
+            </div>
+             <br>
         
           <button type="button" class="btn btn-outline-primary">Submit Now</button>
           </form>
@@ -488,6 +514,9 @@
  
     </div>
   </main>
+
+</ul>
+</div >
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

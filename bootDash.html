@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/studentProfile.css" />
   <link rel="stylesheet" href="css/event.css">
   <link rel="stylesheet" href="./css/notice.css">
+  <link rel="stylesheet" href="css/backGround.css">
  
   <title>EduHelp</title>
 </head>
@@ -68,6 +69,20 @@
 
 
   </header>
+
+  <!-- Backgound  -->
+  <div class="area" >
+    <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
 
   <main class="d-inline-flex align-items-start p-2 mt-3 w-100 ">
     <!-- side nav -->
@@ -439,9 +454,10 @@
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
 
-        <!-- surojit likh be -->
+
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+ <!-- surojit likh be -->
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center">
@@ -449,34 +465,64 @@
             </div>
           </div>
         </div> 
-      
-            <form class="ml-5" id="subjectChangeForm" action="status.html" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
+        <br>
+<div class="form-body">
+  <div class="row">
+      <div class="form-holder">
+          <div class="form-content">
+              <div class="form-items">
+                  <form class="requires-validation" id="subjectChangeForm" action="status.html" method="post" novalidate>
 
-                <label for="regNo">Registration No:</label>
-                <input type="text" id="regNo" name="regNo" required><br><br>
+                      <div class="col-md-12">
+                         <input class="form-control" type="text" id="name" name="name" placeholder="Full Name" required>
+                         <div class="valid-feedback">Username field is valid!</div>
+                         <div class="invalid-feedback">Username field cannot be blank!</div>
+                      </div> <br>
 
-                <label for="presentSubject">Present Subject:</label>
-                <select id="presentSubject" class="p-2" name="presentSubject" required>
-                    <option value="">Select present subject</option>
-                    <option value="Mathematics">Mathematics</option>
-                    <option value="Science">Science</option>
-                    <option value="English">English</option>
-                    <option value="History">History</option>
-                </select><br><br>
+                      <div class="col-md-12">
+                          <input class="form-control" type="text" id="regNo" name="regNo" placeholder="Registration Number" required>
+                           <div class="valid-feedback">Email field is valid!</div>
+                           <div class="invalid-feedback">Email field cannot be blank!</div>
+                      </div>
 
-                <label for="newSubject">New Subject:</label>
-                <select class="p-2" id="newSubject" name="newSubject" required>
-                    <option value="">Select new subject</option>
-                    <option value="Physics">Physics</option>
-                    <option value="Chemistry">Chemistry</option>
-                    <option value="Biology">Biology</option>
-                    <option value="Geography">Geography</option>
-                </select> <br> <br>
-                <input type="submit" value="Submit">
-            </form>
+                     <div class="col-md-12">
+                          <select class="form-select mt-3" id="presentSubject" name="presentSubject" required>
+                                <option selected disabled value="">Present Subject</option>
+                                <option value="jweb">Junior Web Developer</option>
+                                <option value="sweb">Senior Web Developer</option>
+                                <option value="pmanager">Project Manager</option>
+                         </select>
+
+                          <!-- <div class="valid-feedback">You selected a position!</div>
+                          <div class="invalid-feedback">Please select a position!</div> -->
+                     </div>
+
+                     <div class="col-md-12">
+                      <select class="form-select mt-3"  id="newSubject" name="newSubject" required>
+                            <option selected disabled value="">New Subject</option>
+                            <option value="jweb">Junior Web Developer</option>
+                            <option value="sweb">Senior Web Developer</option>
+                            <option value="pmanager">Project Manager</option>
+                     </select>
+
+                      <!-- <div class="valid-feedback">You selected a position!</div>
+                      <div class="invalid-feedback">Please select a position!</div> -->
+                 </div>
+                 <br>
+
+                 <div class="d-grid gap-2 col-6 mx-auto">
+                  <button class="btn btn-primary" type="submit" value="Submit">SUBMIT</button>
+                </div>
+
+                  </form>
+              </div>
+          </div>
       </div>
+  </div>
+</div> 
+ </div>
+
+
       <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
         <div class=" container slider">
           <div class="slides">
@@ -618,6 +664,9 @@
       
     </div>
   </main>
+
+</ul>
+</div >
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
