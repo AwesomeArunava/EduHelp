@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="shortcut icon" href="images/FavIcon-icon.png" type="image/x-icon">
+<link rel="stylesheet" href="css/status.css">
     <title>Subject Change Request Status</title>
     <style>
         body {
@@ -28,13 +29,20 @@
         }
         .headT{
             font-size: 30px;
+            color:white;
         }
         .statusTable{
+            margin-top: 120px;
             text-align: center;
             margin-left: 30px;
+            margin-right: 30px;
         }
         .dash {
             margin-top: 20%;
+           
+        }
+        .dash a{
+            color: white;
         }
         .dash a:hover{
         cursor: pointer;
@@ -42,7 +50,23 @@
     </style>
 </head>
 <body>
-    <center> <h1>Subject Change Request Status</h1> </center> <br>
+    <!-- <center> <h1>Subject Change Request Status</h1> </center> <br> -->
+
+    <div class="content">
+        <div class="content__container">
+          <p class="content__container__text">
+            Hello
+          </p>
+          
+          <ul class="content__container__list">
+            <li class="content__container__list__item">Wating </li>
+            <li class="content__container__list__item">For </li>
+            <li class="content__container__list__item">Admin </li>
+            <li class="content__container__list__item"> !</li>
+          </ul>
+        </div>
+      </div>
+
     <div class="statusTable">
     <table>
         <tr>
@@ -70,6 +94,8 @@
             <td id="status"></td>
         </tr>
     </table>
+
+
 
     <div class="dash">
         <a href="bootDash.html">Dashboard</a>
