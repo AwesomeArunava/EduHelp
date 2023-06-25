@@ -33,10 +33,24 @@ showCardButton.addEventListener("click", () => {
 const logoutButton = document.querySelector('.logout-button');
 
 logoutButton.addEventListener('click', () => {
-  // Perform logout action here
+
   
 });
 
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
+
+
+function loginPage(){
+  window.location.href = "teacher-login.html";
+    // Perform logout action here
+    signOut(auth).then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+}
+
+var logOut = document.getElementById("logOut");
+logOut.addEventListener("click", handleLogout);
