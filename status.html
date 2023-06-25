@@ -29,7 +29,7 @@
         }
         .headT{
             font-size: 30px;
-            color:white;
+            color:lime;
         }
         .statusTable{
             margin-top: 120px;
@@ -70,7 +70,7 @@
     <div class="statusTable">
     <table>
         <tr>
-            <th class="headT">Field</th>
+            <th class="headT">Information</th>
             <th class="headT">Value</th>
         </tr>
         <tr>
@@ -91,7 +91,7 @@
         </tr>
         <tr>
             <td>Status:</td>
-            <td id="status"></td>
+           <div class="Status"> <td id="status"></td> </div>
         </tr>
     </table>
 
@@ -120,6 +120,7 @@
         // You can set the status dynamically based on your logic
         var status = "Pending";
         statusElement.textContent = status;
+
 
         // Clear the form data from localStorage
         localStorage.removeItem("name");
