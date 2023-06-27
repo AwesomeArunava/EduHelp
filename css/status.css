@@ -74,6 +74,7 @@ body {
     overflow: hidden;
     height: 40px;
     padding: 0 40px;
+    
   }
   .content__container:before {
     content: '[';
@@ -114,6 +115,7 @@ body {
     animation-name: change;
     animation-duration: 10s;
     animation-iteration-count: infinite;
+    
   }
   .content__container__list__item {
     line-height: 40px;
