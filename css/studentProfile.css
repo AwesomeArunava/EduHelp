@@ -90,7 +90,12 @@ body {
 #collage,
 #collage_roll,
 #sem,
-#session{
+#session,
+#paper_1,
+#paper_2,
+#paper_3,
+#paper_4,
+#paper_5{
   display: block;
   pointer-events: none;
   border: none;

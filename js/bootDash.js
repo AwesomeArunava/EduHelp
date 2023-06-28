@@ -54,10 +54,12 @@ function generateClassroomCode() {
 }
 
 
+// Student Data write and Read code
 
 
 
 
+// logout code is here
 
 function loginPage(){
    window.location.href = "login.html";

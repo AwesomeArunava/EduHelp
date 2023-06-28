@@ -74,8 +74,23 @@
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-      import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-      import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        child,
+        get,
+      } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        GoogleAuthProvider,
+        sendSignInLinkToEmail,
+        isSignInWithEmailLink,
+        sendEmailVerification,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -83,11 +98,12 @@
       const firebaseConfig = {
         apiKey: "AIzaSyD9EHdz97GaYT-ppJ9WddOckUEgbjPZZns",
         authDomain: "eduhelp-bcf7d.firebaseapp.com",
-        databaseURL: "https://eduhelp-bcf7d-default-rtdb.asia-southeast1.firebasedatabase.app",
+        databaseURL:
+          "https://eduhelp-bcf7d-default-rtdb.asia-southeast1.firebasedatabase.app",
         projectId: "eduhelp-bcf7d",
         storageBucket: "eduhelp-bcf7d.appspot.com",
         messagingSenderId: "399207158671",
-        appId: "1:399207158671:web:5b3f03eb619b15a1c2f1fa"
+        appId: "1:399207158671:web:5b3f03eb619b15a1c2f1fa",
       };
 
       // Initialize Firebase
@@ -96,11 +112,40 @@
       const auth = getAuth();
       const provider = new GoogleAuthProvider();
 
-      signup.addEventListener('click', (e) => {
+      signup.addEventListener("click", (e) => {
         var email = document.getElementById("email").value;
         var password = document.getElementById("password").value;
         var name = document.getElementById("name").value;
         var accountType = "student";
+        
+        var father_name = "";
+        var address = "";
+        var city = "";
+        var ps = "";
+        var dist = "";
+        var state = "";
+        var pin_code = "";
+        var adhar = "";
+        var contact_number = "";
+        var reg = "";
+        var academic_year = "";
+        var gender = "";
+        var dob = "";
+        var religion = "";
+        var blood = "";
+        var department = "";
+        var collage = "";
+        var collage_roll = "";
+        var sem = "";
+        var session = "";
+        var paper_1 = "";
+        var paper_2 = "";
+        var paper_3 = "";
+        var paper_4 = "";
+        var paper_5 = "";
+        
+
+        
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             // Signed in
@@ -112,24 +157,49 @@
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 const userId = user.uid;
-                console.log(userId)
+                console.log(userId);
 
                 // write on data base
 
-                function writeUserData(userId, name, email, accountType) {
-                  set(ref(database, 'users/' + userId), {
+                function writeUserData(userId, name, email, accountType, father_name, address, city, ps, dist, state, pin_code, adhar, contact_number, reg, academic_year, gender, dob, religion, blood, department, collage, collage_roll, sem, session, paper_1, paper_2, paper_3, paper_4, paper_5) {
+                  set(ref(database, "users/" + userId), {
                     student_name: name,
                     email: email,
                     userType: accountType,
+                    father_name: father_name,
+                    address: address,
+                    city: city,
+                    ps: ps,
+                    dist : dist,
+                    state : state,
+                    pin_code : pin_code,
+                    adhar : adhar,
+                    contact_number : contact_number,
+                    reg : reg,
+                    academic_year : academic_year,
+                    gender : gender,
+                    dob : dob,
+                    religion : religion,
+                    blood : blood,
+                    department : department,
+                    collage : collage,
+                    collage_roll : collage_roll,
+                    sem : sem,
+                    session : session,
+                    paper_1 : paper_1,
+                    paper_2 : paper_2,
+                    paper_3 : paper_3,
+                    paper_4 : paper_4,
+                    paper_5 : paper_5,
                   });
                 }
-                writeUserData(userId, name, email, accountType);
+                writeUserData(userId, name, email, accountType, father_name, address, city, ps, dist, state, pin_code, adhar, contact_number, reg, academic_year, gender, dob, religion, blood, department, collage, collage_roll, sem, session, paper_1, paper_2, paper_3, paper_4, paper_5);
               } else {
                 console("Did not find UID");
               }
             });
 
-            emailVerification()
+            emailVerification();
             // ...
           })
           .catch((error) => {
@@ -142,29 +212,33 @@
         // console.log(userId)
         console.log(name);
         console.log(email);
+      });
 
+      // Sign In proccess for Students
 
-      })
-
-         // Sign In proccess for Students
-
-         signin.addEventListener("click", (f) => {
+      signin.addEventListener("click", (f) => {
         var email = document.getElementById("signEmail").value;
         var password = document.getElementById("signPassword").value;
         signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             // Signed in
             var user = userCredential.user;
-
+            console.log(user);
             if (user.emailVerified) {
-              var userId = user.uid;
-
+              var userId = user.uid; 
+              // Assuming you have the user ID stored in a variable called "userId"
+              localStorage.setItem('user', user);
+              localStorage.setItem('userId', userId);
+              localStorage.setItem('email', user.email);
+              
+              // localStorage.setItem('name', displayName);
+              // localStorage.getItem('userType', accountType);
               const dbRef = ref(getDatabase());
               get(child(dbRef, `users/${userId}`))
                 .then((snapshot) => {
                   if (snapshot.exists()) {
                     // console.log(snapshot.val());
-                    window.location.href = "/EduHelp/bootDash.html";
+                    window.location.href = "/bootDash.html";
                   } else {
                     console.log("No data available");
                     alert("You are not a student!");
@@ -174,8 +248,10 @@
                   console.error(error);
                 });
             } else {
-              alert("Your email is not verified yet, We send a verification link in your mail. Go and Verify.");
-              emailVerification()
+              alert(
+                "Your email is not verified yet, We send a verification link in your mail. Go and Verify."
+              );
+              emailVerification();
             }
             // ...
           })
@@ -186,17 +262,14 @@
           });
       });
 
-      
-
       // Send email verification link
 
       const emailVerification = () => {
-
-        sendEmailVerification(auth.currentUser)
-          .then(() => {
-            alert("For Login verify your email.");
-          });
-      }
+        sendEmailVerification(auth.currentUser).then(() => {
+          alert("For Login verify your email.");
+        });
+      };
+       
     </script>
   </body>
 </html>
