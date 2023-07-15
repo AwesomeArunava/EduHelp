@@ -36,7 +36,7 @@ get(child(dbRef, 'teachers')).then((snapshot) => {
     for (const key in teachersData) {
       if (teachersData.hasOwnProperty(key)) {
         const element = teachersData[key];
-      
+        console.log(element);
         if (element.hasOwnProperty(classroomCode)) {
           console.log(element);
           const teacherUserId = element[classroomCode].userId;
@@ -103,20 +103,141 @@ get(child(dbRef, 'users')).then((snapshot) => {
     const studentsData = snapshot.val();
     // console.log(studentsData.classrooms);
    const classroom = studentsData[UserId].classrooms;
-    for (const key in classroom) {
-    //  console.log(studentsData);
-      var classroomKey = classroom[key];
-      get(child(dbRef, 'teachers')).then((snapshot) => {
-        if (snapshot.exists()) {
+  //  console.log(classroom);
+ 
+   
+//     for (const key in classroom) {
+//     //  console.log(studentsData);
+//       var classroomKey = classroom[key];
+//       var classroomCode = classroomKey.classroomCode;
+//       var codes = new Array();
+//       codes.push(classroomCode);
+//       console.log("hello");
+//       get(child(dbRef, 'teachers')).then((snapshot) => {
+//         if (snapshot.exists()) {
         
+//         var teachersData = snapshot.val();
+//         // console.log(teachersData);
+//         for (const key in teachersData) {
+//           if (teachersData.hasOwnProperty(key)) {
+//             const element = teachersData[key];
+//             // console.log(element);
+//             if (element.hasOwnProperty(classroomCode)) {
+
+//               console.log(element[classroomCode].classroomName);
+//               const teacherUserId = element[classroomCode].userId;
+//               console.log('User Id is:', teacherUserId);
+
+              
+//                // Create the card element
+//   var b = document.createElement('div');
+//   b.classList.add('col-sm-6', 'mt-3');
+
+//   // Set the card content
+//   b.innerHTML = ` <div class="card">
+//   <div class="card-body">
+//     <h5 class="card-title" id="ClassName"></h5>
+//     <h6 class="card-title">Sem: <span id="sem"></span></h6>
+//     <h6 class="card-title">Classroom Code: <span id="classCode"></span></h6>
+//     <a href="#" class="btn btn-primary">Go to Classroom:</a>
+//   </div>
+// </div>`;
+
+//   // Append the card to the document body
+// //   document.body.appendChild(card);
+
+// // Select the target <div> element
+// var targetDiv = document.getElementById('course-list'); // Replace 'yourDivId' with the actual ID of your target <div>
+
+
+
+// // Append the card to the target <div>
+// targetDiv.appendChild(b);
+// document.getElementById("ClassName").textContent = element[classroomCode].classroomName;            
+// document.getElementById("sem").textContent = element[classroomCode].semester;
+// document.getElementById("classCode").textContent = element[classroomCode].classroomCode; 
+            
+// }   }
           
-        } else {
-          console.log('No data available1');
+//         }
+          
+//         } else {
+//           console.log('No data available1');
+//         }
+//       }).catch((error) => {
+//         console.error(error);
+//       });
+//     }
+
+async function processClassrooms(targetDiv) {
+  for (const key in classroom) {
+    var classroomKey = classroom[key];
+    var classroomCode = classroomKey.classroomCode;
+    var codes = new Array();
+    codes.push(classroomCode);
+    console.log("hello");
+
+    try {
+      const snapshot = await get(child(dbRef, 'teachers'));
+      if (snapshot.exists()) {
+        var teachersData = snapshot.val();
+        for (const key in teachersData) {
+          if (teachersData.hasOwnProperty(key)) {
+            const element = teachersData[key];
+            if (element.hasOwnProperty(classroomCode)) {
+              console.log(element[classroomCode].classroomName);
+              const teacherUserId = element[classroomCode].userId;
+              console.log('User Id is:', teacherUserId);
+
+              // Inside the loop
+var b = document.createElement('div');
+b.classList.add('col-sm-6', 'mt-3');
+
+// Generate a unique key using `key` and timestamp
+var uniqueKey = key + '-' + Date.now();
+
+// Generate unique IDs for the elements within each div
+var classNameId = "ClassName-" + uniqueKey;
+var semId = "sem-" + uniqueKey;
+var classCodeId = "classCode-" + uniqueKey;
+
+// Set the card content
+b.innerHTML = ` <div class="card">
+  <div class="card-body">
+    <h5 class="card-title" id="${classNameId}"></h5>
+    <h6 class="card-title">Sem: <span id="${semId}"></span></h6>
+    <h6 class="card-title">Classroom Code: <span id="${classCodeId}"></span></h6>
+    <a href="#" class="btn btn-primary">Go to Classroom:</a>
+  </div>
+</div>`;
+
+// Append the card to the target <div>
+targetDiv.appendChild(b);
+
+// Set the value of the elements within the current div
+document.getElementById(classNameId).textContent = element[classroomCode].classroomName;
+document.getElementById(semId).textContent = element[classroomCode].semester;
+document.getElementById(classCodeId).textContent = element[classroomCode].classroomCode;
+
+        break;    }
+          }
         }
-      }).catch((error) => {
-        console.error(error);
-      });
+      } else {
+        console.log('No data available1');
+      }
+    } catch (error) {
+      console.error(error);
     }
+  }
+}
+
+// Select the target <div> element
+var targetDiv = document.getElementById('course-list');
+
+// Call the function and pass the targetDiv as a parameter
+processClassrooms(targetDiv);
+
+
     
   } else {
     console.log('No data available1');

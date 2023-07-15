@@ -43,6 +43,7 @@ var department = document.getElementById("department");
 var collage = document.getElementById("collage");
 var collage_roll = document.getElementById("collage_roll");
 var sem = document.getElementById("sem");
+var sem_1 = document.getElementById("sem_1");
 var session = document.getElementById("session");
 var save = document.getElementById("save");
 var paper_1 = document.getElementById("paper_1");
@@ -106,7 +107,8 @@ get(child(dbRef, `users/${userId}`)).then((snapshot) => {
     // console.log(snapshot.val());
     let studentData = snapshot.val();
     // console.log(studentData);
-    var student_name = studentData.student_name;
+    // var student_name = studentData.student_name;
+    var student_name = "hello";
     console.log(student_name);
     document.getElementById("student_name").textContent = student_name;
     document.getElementById("father_name").value = studentData.father_name;
@@ -175,7 +177,7 @@ save.addEventListener('click', ()=>{
             paper_4.style.cssText = "display:block; pointer-events:none; border:none;";
             paper_5.style.cssText = "display:block; pointer-events:none; border:none;";
 
-                 student_name = document.getElementById("student_name").textContent;
+                //  student_name = document.getElementById("student_name").textContent;
                  father_name = document.getElementById("father_name").value;
                  address = document.getElementById("address").value;
                  city = document.getElementById("city").value;
