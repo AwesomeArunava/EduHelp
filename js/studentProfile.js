@@ -105,7 +105,7 @@ get(child(dbRef, `users/${userId}`)).then((snapshot) => {
   if (snapshot.exists()) {
     // console.log(snapshot.val());
     let studentData = snapshot.val();
-    console.log(studentData);
+    // console.log(studentData);
     var student_name = studentData.student_name;
     console.log(student_name);
     document.getElementById("student_name").textContent = student_name;

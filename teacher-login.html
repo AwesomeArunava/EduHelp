@@ -176,14 +176,16 @@
             var user = userCredential.user;
 
             if (user.emailVerified) {
-              var userId = user.uid;
-
+              var userId = user.uid; 
+              // Assuming you have the user ID stored in a variable called "userId"
+              localStorage.setItem('userId', userId);
+              
               const dbRef = ref(getDatabase());
               get(child(dbRef, `teachers/${userId}`))
                 .then((snapshot) => {
                   if (snapshot.exists()) {
                     // console.log(snapshot.val());
-                    window.location.href = "/EduHelp/teacherDashBoard.html";
+                    window.location.href = "/teacherDashBoard.html";
                   } else {
                     console.log("No data available");
                     alert("You are not a teacher!");
