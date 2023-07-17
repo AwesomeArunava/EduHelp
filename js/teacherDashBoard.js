@@ -268,13 +268,14 @@ document.addEventListener('DOMContentLoaded', function() {
           var classNameId = "ClassName-" + uniqueKey;
           var semId = "sem-" + uniqueKey;
           var classCodeId = "classCode-" + uniqueKey;
-
+          var classroomCode = element.classroomCode;
+          console.log(classroomCode);
           b.innerHTML = ` <div class="card">
             <div class="card-body">
               <h5 class="card-title" id="${classNameId}"></h5>
               <h6 class="card-title">Sem: <span id="${semId}"></span></h6>
               <h6 class="card-title">Classroom Code: <span id="${classCodeId}"></span></h6>
-              <a href="#" class="btn btn-primary">Go to Classroom:</a>
+              <a href="attandence.html?classCode=${classroomCode}">Go to Classroom:</a>
             </div>
           </div>`;
 

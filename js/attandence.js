@@ -4,7 +4,6 @@
    import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
    // TODO: Add SDKs for Firebase products that you want to use
    // https://firebase.google.com/docs/web/setup#available-libraries
-
    // Your web app's Firebase configuration
    const firebaseConfig = {
      apiKey: "AIzaSyD9EHdz97GaYT-ppJ9WddOckUEgbjPZZns",
@@ -23,6 +22,19 @@
    const provider = new GoogleAuthProvider();
    const userId = localStorage.getItem('userId');
    console.log(userId);
+   var targetDiv = document.getElementById('v-pills-tab');
+
+   // Assuming the URL is: https://example.com/page?param1=value1&param2=value2
+
+// Get the current URL
+const url = new URL(window.location.href);
+
+// Access the query parameters
+const params = new URLSearchParams(url.search);
+const classCode = params.get('classCode'); // "value1"
+console.log(classCode);
+// Use the values as needed
+
 
 // student list show
 document.addEventListener('DOMContentLoaded', function() {
@@ -34,45 +46,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
       for (const key in classroomData) {
         if (classroomData.hasOwnProperty(key)) {
-          const element = classroomData[key];
-          const teacherUserId = element.userId;
-          console.log('User Id is:', teacherUserId);
+          console.log(classroomData[classCode]);
+          const element = classroomData[classCode];
+          // console.log(element);
+          const studensList = element.students;
+          // console.log('User Id is:', studensList);
+          for(const key in studensList){
+            
+            var studentId = studensList[key].studentUID;
+            // console.log(studentId.studentUID);
+            //student name list
+            const dbRef = ref(getDatabase());
+            get(child(dbRef, 'users')).then((snapshot) => {
+              if (snapshot.exists()) {
+                const studentsData = snapshot.val();
+                var studentName = studentsData[studentId].student_name;
+                console.log(studentName);
 
-          var b = document.createElement('div');
-          b.classList.add('col-sm-6', 'mt-3');
+                              // Inside the loop
+var b = document.createElement('div');
+// b.classList.add('col-sm-6', 'mt-3');
 
-          var uniqueKey = key + '-' + Date.now();
-          var classNameId = "ClassName-" + uniqueKey;
-          var semId = "sem-" + uniqueKey;
-          var classCodeId = "classCode-" + uniqueKey;
+// Generate a unique key using `key` and timestamp
+var uniqueKey = key + '-' + Date.now();
 
-          b.innerHTML = ` <div class="card">
-            <div class="card-body">
-              <h5 class="card-title" id="${classNameId}"></h5>
-              <h6 class="card-title">Sem: <span id="${semId}"></span></h6>
-              <h6 class="card-title">Classroom Code: <span id="${classCodeId}"></span></h6>
-              <a href="#" class="btn btn-primary">Go to Classroom:</a>
-            </div>
-          </div>`;
+// Generate unique IDs for the elements within each div
+var studentNameId = "StudentName-" + uniqueKey;
 
-          var targetDiv = document.getElementById('course-list');
-          targetDiv.appendChild(b);
 
-          // Set the value of the elements within the current div
-          var classNameElement = document.getElementById(classNameId);
-          if (classNameElement) {
-            classNameElement.textContent = element.classroomName;
-          }
+// Set the card content
+b.innerHTML = ` <div class="card">
+  <div class="card-body">
+    <h5 class="card-title" id="${studentNameId}"></h5>
+    
+  </div>
+</div>`;
 
-          var semElement = document.getElementById(semId);
-          if (semElement) {
-            semElement.textContent = element.semester;
-          }
+// Append the card to the target <div>
+targetDiv.appendChild(b);
 
-          var classCodeElement = document.getElementById(classCodeId);
-          if (classCodeElement) {
-            classCodeElement.textContent = element.classroomCode;
-          }
+// Set the value of the elements within the current div
+document.getElementById(studentNameId).textContent = studentName;
+
+              }
+            })
+          
+        }
+        break;
         }
       }
     } else {
