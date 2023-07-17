@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             get(child(dbRef, 'users')).then((snapshot) => {
               if (snapshot.exists()) {
                 const studentsData = snapshot.val();
-                var studentName = studentsData[studentId].student_name;
+                var studentName = studentsData[studentId].studentInfo.student_name;
                 console.log(studentName);
 
                               // Inside the loop

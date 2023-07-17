@@ -23,7 +23,7 @@
     const provider = new GoogleAuthProvider();
 
 const edit = document.getElementById("edit");
-var student_name;
+var student_name= document.getElementById("student_name");
 var father_name = document.getElementById("father_name");
 var address = document.getElementById("address");
 var city = document.getElementById("city");
@@ -105,12 +105,13 @@ const dbRef = ref(getDatabase());
 get(child(dbRef, `users/${userId}`)).then((snapshot) => {
   if (snapshot.exists()) {
     // console.log(snapshot.val());
-    let studentData = snapshot.val();
+    let studentData = snapshot.val().studentInfo;
     // console.log(studentData);
     // var student_name = studentData.student_name;
-    var student_name = "hello";
+    // var student_name = "hello";
     console.log(student_name);
-    document.getElementById("student_name").textContent = student_name;
+    document.getElementById("student_name").textContent = studentData.student_name;
+    document.getElementById("student_name1").textContent = studentData.student_name;
     document.getElementById("father_name").value = studentData.father_name;
     document.getElementById("address").value = studentData.address;
     document.getElementById("city").value = studentData.city; 
@@ -178,6 +179,8 @@ save.addEventListener('click', ()=>{
             paper_5.style.cssText = "display:block; pointer-events:none; border:none;";
 
                 //  student_name = document.getElementById("student_name").textContent;
+                student_name = document.getElementById("student_name").textContent;
+                console.log(student_name);
                  father_name = document.getElementById("father_name").value;
                  address = document.getElementById("address").value;
                  city = document.getElementById("city").value;
@@ -236,11 +239,55 @@ save.addEventListener('click', ()=>{
                   paper_5 : paper_5,
                 });
               }
-              writeUserData(userId, student_name, email, father_name, address, city, ps, dist, state, pin_code, adhar, contact_number, reg, academic_year, gender, dob, religion, blood, department, collage, collage_roll, sem, session, paper_1, paper_2, paper_3, paper_4, paper_5);
+              // writeUserData(userId, student_name, email, father_name, address, city, ps, dist, state, pin_code, adhar, contact_number, reg, academic_year, gender, dob, religion, blood, department, collage, collage_roll, sem, session, paper_1, paper_2, paper_3, paper_4, paper_5);
 
-
+              writeNewPost(userId, student_name, email, father_name, address, city, ps, dist, state, pin_code, adhar, contact_number, reg, academic_year, gender, dob, religion, blood, department, collage, collage_roll, sem, session, paper_1, paper_2, paper_3, paper_4, paper_5)
             
 
 
 });
 
+function writeNewPost(userId, student_name, email, father_name, address, city, ps, dist, state, pin_code, adhar, contact_number, reg, academic_year, gender, dob, religion, blood, department, collage, collage_roll, sem, session, paper_1, paper_2, paper_3, paper_4, paper_5) {
+  const db = getDatabase();
+
+  // A post entry.
+  const postData = {
+                  student_name: student_name,
+                  email: email,
+                  userType: "student",
+                  father_name: father_name,
+                  address: address,
+                  city: city,
+                  ps: ps,
+                  dist : dist,
+                  state : state,
+                  pin_code : pin_code,
+                  adhar : adhar,
+                  contact_number : contact_number,
+                  reg : reg,
+                  academic_year : academic_year,
+                  gender : gender,
+                  dob : dob,
+                  religion : religion,
+                  blood : blood,
+                  department : department,
+                  collage : collage,
+                  collage_roll : collage_roll,
+                  sem : sem,
+                  session : session,
+                  paper_1 : paper_1,
+                  paper_2 : paper_2,
+                  paper_3 : paper_3,
+                  paper_4 : paper_4,
+                  paper_5 : paper_5,
+  };
+
+  // const newPostKey = push(child(ref(db), 'posts')).key;
+
+  // Write the new post's data simultaneously in the posts list and the user's post list.
+  const updates = {};
+  updates['users/' + userId + '/studentInfo'] = postData;
+  // updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+  return update(ref(db), updates);
+}
