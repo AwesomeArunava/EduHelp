@@ -22,6 +22,7 @@
    const auth = getAuth();
    const provider = new GoogleAuthProvider();
    const UserId = localStorage.getItem('userId');
+   console.log(UserId);
 var createButton = document.getElementById('join');
 createButton.addEventListener('click', function() {
 
@@ -32,20 +33,54 @@ const dbRef = ref(getDatabase());
 get(child(dbRef, 'teachers')).then((snapshot) => {
   if (snapshot.exists()) {
     const teachersData = snapshot.val();
+    // var classroomData = teachersData[UserId].classrooms;
     // console.log(teachersData)
     for (const key in teachersData) {
       if (teachersData.hasOwnProperty(key)) {
         const element = teachersData[key];
-        console.log(element);
-        if (element.hasOwnProperty(classroomCode)) {
-          console.log(element);
-          const teacherUserId = element[classroomCode].userId;
-          console.log('User Id is:', teacherUserId);
-          // writeUserData(teacherUserId, classroomCode);
-          writeNewPost(teacherUserId, classroomCode);
-          joinCourse(UserId, classroomCode);
-          break;
-        }
+        // console.log(element);
+      
+        
+          if(element.hasOwnProperty("classrooms")){
+            console.log(element.classrooms);
+            const classCode = element.classrooms;
+            if(classCode.hasOwnProperty(classroomCode)){
+              console.log(classCode[classroomCode].userId);
+              const teacherUserId = classCode[classroomCode].userId;
+              writeNewPost(teacherUserId, classroomCode);
+              joinCourse(UserId, classroomCode);
+            break;
+            }
+          }
+        
+        // console.log(a);
+        // if(a.hasOwnProperty(classrooms)){
+          
+          
+          // if(element.hasOwnProperty(key)){
+            // const a = element.classrooms[classroomCode];
+            
+          // console.log(element.classrooms);
+          // console.log(a.classroomCode);
+          
+          // }
+      // }
+    //     for(const key in element){
+    //     if(element.hasOwnProperty(key)){
+
+          
+    //      var classroomData = element[key];
+    //     //  if(classroomData.userId==classroomCode){
+    //       console.log(classroomData);
+    //       const teacherUserId = classroomData.userId;
+    //       // console.log('User Id is:', teacherUserId);
+    //       // writeUserData(teacherUserId, classroomCode);
+    //       writeNewPost(teacherUserId, classroomCode);
+    //       joinCourse(UserId, classroomCode);
+    //       break;
+    //     //  }
+    //   }
+    // }
       }
     }
     
@@ -101,8 +136,10 @@ const dbRef = ref(getDatabase());
 get(child(dbRef, 'users')).then((snapshot) => {
   if (snapshot.exists()) {
     const studentsData = snapshot.val();
-    // console.log(studentsData.classrooms);
-   const classroom = studentsData[UserId].classrooms;
+    const b = studentsData;
+    console.log(b);
+    console.log(UserId);
+   var classroom = studentsData[UserId].classrooms;
   //  console.log(classroom);
  
    
@@ -173,9 +210,10 @@ async function processClassrooms(targetDiv) {
   for (const key in classroom) {
     var classroomKey = classroom[key];
     var classroomCode = classroomKey.classroomCode;
-    var codes = new Array();
-    codes.push(classroomCode);
-    console.log("hello");
+    // var codes = new Array();
+    // codes.push(classroomCode);
+    // console.log("hello");
+    console.log(classroomCode);
 
     try {
       const snapshot = await get(child(dbRef, 'teachers'));
@@ -184,9 +222,9 @@ async function processClassrooms(targetDiv) {
         for (const key in teachersData) {
           if (teachersData.hasOwnProperty(key)) {
             const element = teachersData[key];
-            if (element.hasOwnProperty(classroomCode)) {
-              console.log(element[classroomCode].classroomName);
-              const teacherUserId = element[classroomCode].userId;
+            if (element.hasOwnProperty("classrooms")) {
+              console.log(element.classrooms[classroomCode].classroomName);
+              const teacherUserId = element.classrooms[classroomCode].userId;
               console.log('User Id is:', teacherUserId);
 
               // Inside the loop
@@ -215,9 +253,9 @@ b.innerHTML = ` <div class="card">
 targetDiv.appendChild(b);
 
 // Set the value of the elements within the current div
-document.getElementById(classNameId).textContent = element[classroomCode].classroomName;
-document.getElementById(semId).textContent = element[classroomCode].semester;
-document.getElementById(classCodeId).textContent = element[classroomCode].classroomCode;
+document.getElementById(classNameId).textContent = element.classrooms[classroomCode].classroomName;
+document.getElementById(semId).textContent = element.classrooms[classroomCode].semester;
+document.getElementById(classCodeId).textContent = element.classrooms[classroomCode].classroomCode;
 
         break;    }
           }
@@ -272,7 +310,7 @@ function writeNewPost(teacherUserId, classroomCode) {
 
   // Write the new post's data simultaneously in the posts list and the user's post list.
   const updates = {};
-  updates['teachers/' + teacherUserId + '/' + classroomCode + '/students/' + newPostKey] = postData;
+  updates['teachers/' + teacherUserId + '/classrooms/' + classroomCode + '/students/' + newPostKey] = postData;
   // updates['/user-posts/' + uid + '/' + newPostKey] = postData;
 
   return update(ref(db), updates);

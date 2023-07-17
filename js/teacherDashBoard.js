@@ -86,7 +86,7 @@ function generateClassroomCode() {
 
 function writeUserData(userId, classroomName, teacherName, semester, classroomCode) {
   const db = getDatabase();
-  set(ref(db, 'teachers/' + userId + '/' + classroomCode ), {
+  set(ref(db, 'teachers/' + userId + '/classrooms/' + classroomCode ), {
     classroomName: classroomName,
     teacherName: teacherName,
     semester : semester,
