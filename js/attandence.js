@@ -390,3 +390,6 @@ showCardButton.addEventListener("click", () => {
   }
 });
 
+function setFocus () {
+  document.getElementById('w-input-text').focus();
+}

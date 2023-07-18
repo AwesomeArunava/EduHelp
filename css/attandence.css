@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 body{
     background-color: rgba(197, 227, 241, 0.516);
+    /* overflow: hidden; */
 }
 .logo-text{
     font-weight: bold;
@@ -104,3 +106,120 @@ body{
   }
 } */
 
+ /* txt input css */
+.massage{
+  background-color: #f6f2f2;
+  
+  /* position: relative; */
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.5;
+}
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+/* Cool scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+  display: block
+}
+::-webkit-scrollbar-thumb {
+  background: #e4eaf5;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(196, 201, 211)
+}
+/* Center stuff and background */
+.container {
+  background: #efefef;
+  width: 100%;
+  /* height: 100%; */
+   display: flex;
+ 
+  justify-content: center;
+  align-items: center; 
+  /* flex-direction: column; */
+    /* Set styles for the div at the bottom */
+    background-color: #f0f0f0; /* Add styles as desired */
+    padding: 10px;
+      position: absolute; 
+  bottom:0;
+}
+
+h1 {
+  color: white;
+}
+
+/** This is the css of the input **/
+#w-input-container {
+  width: 800px;
+  min-height: 20px;
+  box-sizing: border-box;
+  padding: 9px 18px 11px;
+  margin: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 21px;
+
+}
+
+.w-input-text-group {
+  position: relative;
+}
+
+.w-placeholder {
+  color: #a0a0a0;
+  top: 0;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  opacity: 0;
+  transition: 0.2s padding ease-in-out;
+}
+
+#w-input-text {
+  overflow-x: hidden;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  z-index: 1;
+  max-height: 100px;
+  min-height: 20px;
+  padding: 0 0 0 2px;
+  outline: 0;
+  transition: 0.2s padding ease-in-out;
+}
+
+#w-input-text:empty + .w-placeholder {
+  opacity: 1;
+}
+
+#w-input-text:focus + .w-placeholder {
+  padding: 0 6px 0px;
+}
+
+#w-input-text:focus {
+  padding: 0 6px 0px;
+}
+
+#send{
+  width: 100px;
+  min-height: 20px;
+  box-sizing: border-box;
+  padding: 9px 30px 11px;
+  margin: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 21px;
+  background-color: rgb(38, 213, 38);
+  /* position: absolute; 
+  bottom:0; */
+}
