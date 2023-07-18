@@ -295,3 +295,46 @@ h1 {
   border-left: 15px solid transparent;
   border-bottom: 15px solid rgb(16, 161, 0);;
 }
+
+/* left massage */
+
+ .message-user-left{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  
+}
+
+ .message-user-left .message-user-left-img{
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+  align-items: center;
+}
+
+.message-user-left .message-user-left-img img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+ .message-user-left .message-user-left-text{
+  position: relative;
+  padding: 15px 25px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  color: #949494;
+  max-width: 250px;
+}
+
+ .message-user-left .message-user-left-text::before{
+  content: '';
+  position: absolute;
+  top: -26px;
+  left: 15px;
+  border-right: 15px solid transparent;
+  border-top: 15px solid transparent;
+  border-left: 0px solid transparent;
+  border-bottom: 15px solid #ffffff;
+}
