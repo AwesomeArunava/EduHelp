@@ -109,7 +109,8 @@ body{
  /* txt input css */
 .massage{
   background-color: #f6f2f2;
-  
+  overflow: auto;
+  height: 100vh;
   /* position: relative; */
 }
 

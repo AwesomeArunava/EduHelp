@@ -114,9 +114,9 @@ document.addEventListener('DOMContentLoaded', async function() {
       const classroomData = teachersData[userId].classrooms;
       
       for (const key in classroomData) {
-        if (classroomData.hasOwnProperty(key)) {
+        if (classroomData.hasOwnProperty(classCode)) {
           console.log(classroomData[key]);
-          const element = classroomData[key];
+          const element = classroomData[classCode];
           const studensList = element.students;
           
           for (const studentKey in studensList) {
