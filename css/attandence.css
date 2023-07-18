@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 body{
     background-color: rgba(197, 227, 241, 0.516);
+    height: 100vh;
     /* overflow: hidden; */
 }
 .logo-text{
@@ -105,13 +106,27 @@ body{
     grid-template-columns: repeat(2, 1fr);
   }
 } */
+.containerAll{
+  height:87vh;
+  position: relative;
+}
 
+.mainBody{
+  
+}
  /* txt input css */
 .massage{
-  background-color: #f6f2f2;
+  /* background-color: #f6f2f2; */
   overflow: auto;
-  height: 100vh;
-  /* position: relative; */
+  width: 100%!important;
+  /* height: ; */
+  height: 78vh;
+  position: relative;
+  background-image: url("../images/chatBackground.jpg");
+  background-repeat: no-repeat; /* or 'repeat-x', 'repeat-y', 'repeat' for different repeat styles */
+  background-size: cover; /* 'cover' or 'contain' to control the image size */
+  background-position: center center; /* 'x y' to control the image position */
+  /* margin-bottom: 1000px!important; */
 }
 
 body {
@@ -139,9 +154,9 @@ body {
   background: rgb(196, 201, 211)
 }
 /* Center stuff and background */
-.container {
+.typeInput{
   background: #efefef;
-  width: 100%;
+  width: 100%!important;
   /* height: 100%; */
    display: flex;
  
@@ -153,6 +168,7 @@ body {
     padding: 10px;
       position: absolute; 
   bottom:0;
+  right: 0;
 }
 
 h1 {
@@ -161,7 +177,7 @@ h1 {
 
 /** This is the css of the input **/
 #w-input-container {
-  width: 800px;
+  width: 100%;
   min-height: 20px;
   box-sizing: border-box;
   padding: 9px 18px 11px;
@@ -223,4 +239,59 @@ h1 {
   background-color: rgb(38, 213, 38);
   /* position: absolute; 
   bottom:0; */
+}
+
+.messageBox{
+  background-color: red;
+  height: 100%;
+}
+
+.singleMessage{
+  width: auto;
+  height: auto;
+  background-color: #158627;
+  color: white;
+  padding: 10px;
+  /* border-radius: ; */
+}
+
+/* kjl */
+ .message-user-right{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 15px;
+}
+
+ .message-user-right .message-user-right-img{
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+  align-items: center;
+}
+ .message-user-right .message-user-right-img img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+ .message-user-right-text{
+  position: relative;
+  padding: 15px 25px;
+  background-color: rgb(16, 161, 0);
+  border-radius: 15px;
+  color: #302f2f;
+  width: 250px;
+}
+
+ .message-user-right-text::before{
+  content: '';
+  position: absolute;
+  top: -26px;
+  right: 15px;
+  border-right: 0px solid transparent;
+  border-top: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-bottom: 15px solid rgb(16, 161, 0);;
 }
