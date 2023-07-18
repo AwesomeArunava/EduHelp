@@ -108,7 +108,8 @@ document.addEventListener('DOMContentLoaded', async function() {
   try {
     const dbRef = ref(getDatabase());
     const snapshot = await get(child(dbRef, 'teachers'));
-    
+    fetchMessage();
+   
     if (snapshot.exists()) {
       const teachersData = snapshot.val();
       const classroomData = teachersData[userId].classrooms;
@@ -374,6 +375,214 @@ downloadExcel();
                 // Attach click event to the download button
                 
                 // downloadData.addEventListener("click", downloadExcel);
+
+// send massage and show massage
+var send = document.getElementById("send");
+send.addEventListener('click', ()=>{
+
+// take massage value from text box
+var message= document.getElementById("w-input-text").textContent;
+// Create a new Date object to get the current date and time
+const currentTime = new Date();
+
+// Extract the year, month, and day from the Date object
+const year = currentTime.getFullYear();
+const month = (currentTime.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based, so we add 1
+const day = currentTime.getDate().toString().padStart(2, '0');
+
+// Extract the hours, minutes, and seconds from the Date object
+const hours = currentTime.getHours().toString().padStart(2, '0');
+const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+
+// Format the date and time as strings
+const formattedDate = `${year}-${month}-${day}`;
+const formattedTime = `${hours}:${minutes}`;
+
+// Combine date and time
+const time = `${formattedTime}`;
+const date = `${formattedDate}`
+
+console.log(date); // Output the current date and time in YYYY-MM-DD HH:mm:ss format
+
+console.log(time);
+
+
+writeNewPost(userId, classCode, time, date, message);
+
+
+
+// Call the function and pass the id of the div you want to clear
+deleteAllElementsInDivById('message');
+
+fetchMessage();
+
+
+
+});
+// fetch teacher name
+
+// async function teacherName() {
+//   try {
+//     const dbRef = ref(getDatabase());
+//     const snapshot = await get(child(dbRef, 'teachers'));
+    
+//     if (snapshot.exists()) {
+//       const teachersData = snapshot.val();
+//       const classroomData = teachersData[userId].classrooms;
+      
+//       for (const key in classroomData) {
+//         if (key === classCode) { // Correct the loop condition to check if key matches classCode
+//           console.log(classroomData[key]);
+//           const element = classroomData[key];
+//           const teacherName = element.teacherName;
+
+//           return teacherName; // Return the teacherName value
+//         }
+//       }
+
+//       console.log('classCode not found');
+//       return null; // Return null or any other default value if classCode is not found
+//     } else {
+//       console.log('No data available');
+//       return null; // Return null or any other default value if no data is available
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     return null; // Return null or any other default value in case of an error
+//   }
+// }
+
+
+
+// post code 
+
+function writeNewPost(userId, classCode, time, date, message) {
+  const db = getDatabase();
+
+  // A post entry.
+  const postData = {
+                  userId: userId,
+                  // teacherName: teacherName,
+                  message: message,
+                  time: time,
+                  date: date,
+  };
+
+  const newPostKey = push(child(ref(db), 'posts')).key;
+
+  // Write the new post's data simultaneously in the posts list and the user's post list.
+  const updates = {};
+  updates['teachers/' + userId + '/classrooms/'+ classCode + '/posts/' + newPostKey] = postData;
+  // updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+  return update(ref(db), updates);
+}
+
+// delete massage when click 
+function deleteAllElementsInDivById(id) {
+  const targetDiv = document.getElementById(id);
+  if (targetDiv) {
+    targetDiv.innerHTML = ''; // Clear the content inside the targetDiv
+  } else {
+    console.log(`Element with id "${id}" not found.`);
+  }
+}
+// fetch massage
+function fetchMessage(){
+  console.log("hello bachoo");
+
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, 'teachers')).then((snapshot) => {
+    if (snapshot.exists()) {
+      const teachersData = snapshot.val();
+      var classroomData = teachersData[userId].classrooms;
+console.log(classroomData);
+      for (const key in classroomData) {
+        if (classroomData.hasOwnProperty(classCode)) {
+          const element = classroomData[classCode];
+          const teacherName = element.teacherName;
+          console.log('User Id is:', teacherName);
+          const posts = element.posts;
+          for(const key in posts){
+          
+          var b = document.createElement('div');
+          b.classList.add('message-user-right', 'mb-3', 'me-4');
+
+          var uniqueKey = key + '-' + Date.now();
+          var teacherName1 = "TeacherName-" + uniqueKey;
+          var massage = "Message-" + uniqueKey;
+          var time = "Time-" + uniqueKey;
+          // var classroomCode = element.classroomCode;
+          // console.log(classroomCode);
+          b.innerHTML = `
+          <div class="message-user-right-img">
+            <p class="mt-0 mb-0"><strong id="${teacherName1}">Debiprashad</strong></p>
+            <small id="${time}"></small>
+            <img
+              src="https://images.pexels.com/photos/2117283/pexels-photo-2117283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt=""
+            />
+          </div>
+          <div class="message-user-right-text">
+            <strong id="${massage}">Keno ki hoyeche?</strong>
+          </div>
+        `;
+
+          var targetDiv = document.getElementById('message');
+          targetDiv.appendChild(b);
+
+          // Set the value of the elements within the current div
+          var teacherNameElement = document.getElementById(teacherName1);
+          if (teacherNameElement) {
+            teacherNameElement.textContent = teacherName;
+          }
+
+          var messageElement = document.getElementById(massage);
+          if (messageElement) {
+            messageElement.textContent = posts[key].message;
+          }
+
+          var timeElement = document.getElementById(time);
+          if (timeElement) {
+            timeElement.textContent = posts[key].time;
+          }
+        }
+        break;
+        }
+      }
+    } else {
+      console.log('No data available');
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+
+}
+
+function scrollToBottom() {
+  const messageContainer = document.getElementById('message');
+  messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+
+
+
+
+
+
+// Observe changes in the message container
+const messageContainer = document.getElementById('message');
+const observer = new MutationObserver(scrollToBottom);
+const observerConfig = { childList: true }; // Observe child node additions
+observer.observe(messageContainer, observerConfig);
+
+
+
+
+// Call scrollToBottom() after adding new content to keep the scroll bar at the bottom
+
+
 // For Card show on click
 
 const showCardButton = document.getElementById('show-card-button');
@@ -393,3 +602,8 @@ showCardButton.addEventListener("click", () => {
 function setFocus () {
   document.getElementById('w-input-text').focus();
 }
+
+
+
+
+
