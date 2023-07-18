@@ -80,6 +80,7 @@
         set,
         child,
         get,
+        update,
       } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
       import {
         getAuth,
@@ -162,7 +163,7 @@
                 // write on data base
 
                 function writeUserData(userId, name, email, accountType, father_name, address, city, ps, dist, state, pin_code, adhar, contact_number, reg, academic_year, gender, dob, religion, blood, department, collage, collage_roll, sem, session, paper_1, paper_2, paper_3, paper_4, paper_5) {
-                  set(ref(database, "users/" + userId + "/studentInfo"), {
+                  update(ref(database, "users/" + userId + "/studentInfo"), {
                     student_name: name,
                     email: email,
                     userType: accountType,
