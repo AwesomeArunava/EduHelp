@@ -109,7 +109,8 @@ get(child(dbRef, `users/${userId}`)).then((snapshot) => {
     // console.log(studentData);
     // var student_name = studentData.student_name;
     // var student_name = "hello";
-    console.log(student_name);
+    console.log(studentData.student_name);
+    localStorage.setItem('name', studentData.student_name);
     document.getElementById("student_name").textContent = studentData.student_name;
     document.getElementById("student_name1").textContent = studentData.student_name;
     document.getElementById("father_name").value = studentData.father_name;
@@ -291,3 +292,4 @@ function writeNewPost(userId, student_name, email, father_name, address, city, p
 
   return update(ref(db), updates);
 }
+// console.log(student_name);

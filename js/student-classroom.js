@@ -22,6 +22,8 @@
    const provider = new GoogleAuthProvider();
    const userId = localStorage.getItem('userId');
    console.log(userId);
+   const studentName2 = localStorage.getItem('name');
+//    console.log(studentName);
    var targetDiv = document.getElementById('v-pills-tab');
    var data = [];
    // Assuming the URL is: https://example.com/page?param1=value1&param2=value2
@@ -409,7 +411,7 @@ console.log(date); // Output the current date and time in YYYY-MM-DD HH:mm:ss fo
 console.log(time);
 
 
-writeNewPost(userId, classCode, time, date, message);
+writeNewPost(userId, classCode, time, date, message, studentName2);
 
 
 
@@ -418,7 +420,7 @@ deleteAllElementsInDivById('message');
 
 fetchMessage();
 
-
+deleteAllElementsInDivById('w-input-text');
 
 });
 // fetch teacher name
@@ -458,13 +460,13 @@ fetchMessage();
 
 // post code 
 
-function writeNewPost(userId, classCode, time, date, message) {
+function writeNewPost(userId, classCode, time, date, message, studentName) {
   const db = getDatabase();
 
   // A post entry.
   const postData = {
                   userId: userId,
-                  // teacherName: teacherName,
+                  name: studentName,
                   message: message,
                   time: time,
                   date: date,
@@ -538,7 +540,7 @@ console.log(classroomData);
           // Set the value of the elements within the current div
           var teacherNameElement = document.getElementById(teacherName1);
           if (teacherNameElement) {
-            teacherNameElement.textContent = teacherName;
+            teacherNameElement.textContent = posts[key].name;
           }
 
           var messageElement = document.getElementById(massage);
