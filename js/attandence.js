@@ -1,6 +1,6 @@
    // Import the functions you need from the SDKs you need
    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-   import { getDatabase, ref, set, child, get, push, update } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+   import { getDatabase, ref, set, child, get, push, update, onChildAdded } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
    import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
    // TODO: Add SDKs for Firebase products that you want to use
    // https://firebase.google.com/docs/web/setup#available-libraries
@@ -617,6 +617,31 @@ const observer = new MutationObserver(scrollToBottom);
 const observerConfig = { childList: true }; // Observe child node additions
 observer.observe(messageContainer, observerConfig);
 
+// const dbRef = ref(getDatabase());
+// const newMsg = ref(dbRef, 'teachers/' + userId + '/classrooms/'+ classCode + '/posts/');
+// onChildAdded(newMsg, ()=>{fetchMessage();});
+
+// import { getDatabase, ref, onChildAdded } from 'firebase/database';
+
+// Assuming you have initialized Firebase and obtained a reference to the database
+const db = getDatabase();
+
+// Assuming you have defined 'userId' and 'classCode' variables
+// const userId = '...';
+// const classCode = '...';
+
+// Create a reference to the 'posts' path under the specific user and classroom
+const newMsgRef = ref(db, 'teachers/' + userId + '/classrooms/' + classCode + '/posts/');
+
+// Adding a listener for child added event
+onChildAdded(newMsgRef, (snapshot) => {
+  // This function will be triggered whenever a new child is added to the 'posts' path
+  const newPostData = snapshot.val();
+  console.log('New post added:', newPostData);
+
+  // Call your fetchMessage() function here to handle the new post data
+  fetchMessage(newPostData);
+});
 
 
 

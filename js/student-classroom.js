@@ -1,6 +1,6 @@
    // Import the functions you need from the SDKs you need
    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-   import { getDatabase, ref, set, child, get, push, update } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+   import { getDatabase, ref, set, child, get, push, update, onChildAdded } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
    import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
    // TODO: Add SDKs for Firebase products that you want to use
    // https://firebase.google.com/docs/web/setup#available-libraries
@@ -624,6 +624,31 @@ observer.observe(messageContainer, observerConfig);
 
 
 // Call scrollToBottom() after adding new content to keep the scroll bar at the bottom
+
+
+// import { getDatabase, ref, onChildAdded } from 'firebase/database';
+
+// Assuming you have initialized Firebase and obtained a reference to the database
+const db = getDatabase();
+
+// Assuming you have defined 'userId' and 'classCode' variables
+// const userId = '...';
+// const classCode = '...';
+
+// Create a reference to the 'posts' path under the specific user and classroom
+const newMsgRef = ref(db, 'teachers/' + teacherUserId + '/classrooms/' + classCode + '/posts/');
+
+// Adding a listener for child added event
+onChildAdded(newMsgRef, (snapshot) => {
+  // This function will be triggered whenever a new child is added to the 'posts' path
+  const newPostData = snapshot.val();
+  console.log('New post added:', newPostData);
+
+  // Call your fetchMessage() function here to handle the new post data
+  fetchMessage(newPostData);
+});
+
+
 
 
 // For Card show on click
