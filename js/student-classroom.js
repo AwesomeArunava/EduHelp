@@ -25,7 +25,8 @@
    var targetDiv = document.getElementById('v-pills-tab');
    var data = [];
    // Assuming the URL is: https://example.com/page?param1=value1&param2=value2
-
+   const teacherUserId= localStorage.getItem('teacherUserId');
+//    const UserId= localStorage.getItem('userId');
 // Get the current URL
 const url = new URL(window.location.href);
 
@@ -279,70 +280,70 @@ document.addEventListener('DOMContentLoaded', async function() {
 // }
 // });
 
-const downloadData = document.getElementById("downloadData");
-downloadData.addEventListener("click", async () => {
-  try {
-    const dbRef = ref(getDatabase());
-    const snapshot = await get(child(dbRef, 'teachers'));
+// const downloadData = document.getElementById("downloadData");
+// downloadData.addEventListener("click", async () => {
+//   try {
+//     const dbRef = ref(getDatabase());
+//     const snapshot = await get(child(dbRef, 'teachers'));
 
-    if (snapshot.exists()) {
-      const teachersData = snapshot.val();
-      const classroomData = teachersData[userId].classrooms;
-      const data = [];
+//     if (snapshot.exists()) {
+//       const teachersData = snapshot.val();
+//       const classroomData = teachersData[userId].classrooms;
+//       const data = [];
 
-      for (const key in classroomData) {
-        if (classroomData.hasOwnProperty(key)) {
-          const element = classroomData[key];
-          const studensList = element.students;
+//       for (const key in classroomData) {
+//         if (classroomData.hasOwnProperty(key)) {
+//           const element = classroomData[key];
+//           const studensList = element.students;
 
-          for (const studentKey in studensList) {
-            const studentId = studensList[studentKey].studentUID;
+//           for (const studentKey in studensList) {
+//             const studentId = studensList[studentKey].studentUID;
 
-            const studentsSnapshot = await get(child(dbRef, 'users'));
-            if (studentsSnapshot.exists()) {
-              const studentsData = studentsSnapshot.val();
-              const studentDetails = studentsData[studentId].studentInfo;
-              console.log(studentDetails);
+//             const studentsSnapshot = await get(child(dbRef, 'users'));
+//             if (studentsSnapshot.exists()) {
+//               const studentsData = studentsSnapshot.val();
+//               const studentDetails = studentsData[studentId].studentInfo;
+//               console.log(studentDetails);
 
-              data.push(studentDetails); // Add studentDetails to the data array
-            }
-          }
-          break;
-        }
-      }
+//               data.push(studentDetails); // Add studentDetails to the data array
+//             }
+//           }
+//           break;
+//         }
+//       }
 
-      // Now, you can call the function to handle the data (e.g., create Excel file)
-      excal(data);
-    } else {
-      console.log('No data available');
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
+//       // Now, you can call the function to handle the data (e.g., create Excel file)
+//       excal(data);
+//     } else {
+//       console.log('No data available');
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
 
-function excal(data){
-var dataArray = data.map(obj => Object.values(obj));
+// function excal(data){
+// var dataArray = data.map(obj => Object.values(obj));
 
-// Create a new workbook and worksheet
-var workbook = XLSX.utils.book_new();
-var worksheet = XLSX.utils.aoa_to_sheet(dataArray);
+// // Create a new workbook and worksheet
+// var workbook = XLSX.utils.book_new();
+// var worksheet = XLSX.utils.aoa_to_sheet(dataArray);
 
-// Add the worksheet to the workbook
-XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+// // Add the worksheet to the workbook
+// XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
 
-// Convert the workbook to a binary Excel file
-var excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+// // Convert the workbook to a binary Excel file
+// var excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
 
-// Function to download the Excel file
-function downloadExcel() {
-  var blob = new Blob([excelBuffer], { type: "application/octet-stream" });
-  saveAs(blob, "data.xlsx");
-}
+// // Function to download the Excel file
+// function downloadExcel() {
+//   var blob = new Blob([excelBuffer], { type: "application/octet-stream" });
+//   saveAs(blob, "data.xlsx");
+// }
 
-downloadExcel();
-}
+// downloadExcel();
+// }
 
 
 
@@ -401,7 +402,7 @@ const formattedTime = `${hours}:${minutes}`;
 
 // Combine date and time
 const time = `${formattedTime}`;
-const date = `${formattedDate}`
+const date = `${formattedDate}`;
 
 console.log(date); // Output the current date and time in YYYY-MM-DD HH:mm:ss format
 
@@ -473,7 +474,7 @@ function writeNewPost(userId, classCode, time, date, message) {
 
   // Write the new post's data simultaneously in the posts list and the user's post list.
   const updates = {};
-  updates['teachers/' + userId + '/classrooms/'+ classCode + '/posts/' + newPostKey] = postData;
+  updates['teachers/' + teacherUserId + '/classrooms/'+ classCode + '/posts/' + newPostKey] = postData;
   // updates['/user-posts/' + uid + '/' + newPostKey] = postData;
 
   return update(ref(db), updates);
@@ -496,7 +497,7 @@ function fetchMessage(){
   get(child(dbRef, 'teachers')).then((snapshot) => {
     if (snapshot.exists()) {
       const teachersData = snapshot.val();
-      var classroomData = teachersData[userId].classrooms;
+      var classroomData = teachersData[teacherUserId].classrooms;
 console.log(classroomData);
       for (const key in classroomData) {
         if (classroomData.hasOwnProperty(classCode)) {
@@ -504,7 +505,9 @@ console.log(classroomData);
           const teacherName = element.teacherName;
           console.log('User Id is:', teacherName);
           const posts = element.posts;
+          
           for(const key in posts){
+            console.log(posts[key].userId);
           if(posts[key].userId === userId){
           var b = document.createElement('div');
           b.classList.add('message-user-right', 'mb-3', 'me-4');
@@ -525,7 +528,7 @@ console.log(classroomData);
             />
           </div>
           <div class="message-user-right-text">
-            <strong id="${massage}">Keno ki hoyeche?</strong>
+            <strong id="${massage}"></strong>
           </div>
         `;
 

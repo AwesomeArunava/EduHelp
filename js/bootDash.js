@@ -219,13 +219,23 @@ async function processClassrooms(targetDiv) {
       const snapshot = await get(child(dbRef, 'teachers'));
       if (snapshot.exists()) {
         var teachersData = snapshot.val();
+        // console.log(teachersData);
         for (const key in teachersData) {
           if (teachersData.hasOwnProperty(key)) {
             const element = teachersData[key];
+            // console.log(element);
             if (element.hasOwnProperty("classrooms")) {
-              console.log(element.classrooms[classroomCode].classroomName);
-              const teacherUserId = element.classrooms[classroomCode].userId;
+              // console.log(element.classrooms);
+              const allClass = element.classrooms;
+              for(const key in allClass){
+                // console.log(allClass[key].classroomCode);
+                if(allClass[key].classroomCode === classroomCode){
+                  console.log(allClass[key].classroomCode);
+                   console.log(allClass[key].teacherUserId);           
+              // console.log(element.classrooms[classroomCode].classroomName);
+              const teacherUserId = allClass[key].userId;
               console.log('User Id is:', teacherUserId);
+              localStorage.setItem('teacherUserId', teacherUserId);
 
               // Inside the loop
 var b = document.createElement('div');
@@ -245,7 +255,7 @@ b.innerHTML = ` <div class="card">
     <h5 class="card-title" id="${classNameId}"></h5>
     <h6 class="card-title">Sem: <span id="${semId}"></span></h6>
     <h6 class="card-title">Classroom Code: <span id="${classCodeId}"></span></h6>
-    <a href="attandence.html" class="btn btn-primary">Go to Classroom:</a>
+    <a href="student-classroom.html?classCode=${element.classrooms[classroomCode].classroomCode}" class="btn btn-primary">Go to Classroom:</a>
   </div>
 </div>`;
 
@@ -256,8 +266,12 @@ targetDiv.appendChild(b);
 document.getElementById(classNameId).textContent = element.classrooms[classroomCode].classroomName;
 document.getElementById(semId).textContent = element.classrooms[classroomCode].semester;
 document.getElementById(classCodeId).textContent = element.classrooms[classroomCode].classroomCode;
+                }
+              }
 
-        break;    }
+
+
+          }
           }
         }
       } else {
