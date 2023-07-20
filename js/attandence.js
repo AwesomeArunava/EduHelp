@@ -34,8 +34,51 @@ const params = new URLSearchParams(url.search);
 const classCode = params.get('classCode'); // "value1"
 console.log(classCode);
 // Use the values as needed
+fetchTeacherId();
+const teacherName = localStorage.getItem('teacherName');
+console.log(teacherName);
+function fetchTeacherId(){
+ 
+  const dbRef = ref(getDatabase());
+    
+  get(child(dbRef, 'teachers')).then((snapshot) => {
+      if (snapshot.exists()) {
+        var teachersData = snapshot.val();
+        // console.log(teachersData);
+        for (const key in teachersData) {
+          if (teachersData.hasOwnProperty(key)) {
+            const element = teachersData[key];
+            // console.log(element);
+            if (element.hasOwnProperty("classrooms")) {
+              // console.log(element.classrooms);
+              const allClass = element.classrooms;
+              for(const key in allClass){
+                // console.log(allClass[key].classroomCode);
+                if(allClass[key].classroomCode === classCode){
+                  // console.log(allClass[key].classroomCode);
+                  //  console.log(allClass[key].teacherUserId);           
+              // console.log(element.classrooms[classroomCode].classroomName);
+              const teacherName = allClass[key].teacherName;
+              console.log(teacherName);
+              localStorage.setItem('teacherName', teacherName);
+              break;
+              // Inside the loop
+                  
+                }
+              }
 
 
+
+          }
+          }
+        }
+      } else {
+        console.log('No data available1');
+      }
+    
+    });
+  
+  }
 // student list show
 // document.addEventListener('DOMContentLoaded', function() {
 //   const dbRef = ref(getDatabase());
@@ -408,7 +451,7 @@ console.log(date); // Output the current date and time in YYYY-MM-DD HH:mm:ss fo
 console.log(time);
 
 
-writeNewPost(userId, classCode, time, date, message);
+writeNewPost(userId, classCode, time, date, message, teacherName);
 
 
 
@@ -457,7 +500,7 @@ fetchMessage();
 
 // post code 
 
-function writeNewPost(userId, classCode, time, date, message) {
+function writeNewPost(userId, classCode, time, date, message, teacherName) {
   const db = getDatabase();
 
   // A post entry.
