@@ -463,7 +463,7 @@ function writeNewPost(userId, classCode, time, date, message) {
   // A post entry.
   const postData = {
                   userId: userId,
-                  // teacherName: teacherName,
+                  name: teacherName,
                   message: message,
                   time: time,
                   date: date,
@@ -574,7 +574,7 @@ console.log(classroomData);
           // Set the value of the elements within the current div
           var teacherNameElement = document.getElementById(teacherName1);
           if (teacherNameElement) {
-            teacherNameElement.textContent = teacherName;
+            teacherNameElement.textContent =  posts[key].name;
           }
 
           var messageElement = document.getElementById(massage);

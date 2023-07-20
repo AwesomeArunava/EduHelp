@@ -579,7 +579,7 @@ console.log(classroomData);
           // Set the value of the elements within the current div
           var teacherNameElement = document.getElementById(teacherName1);
           if (teacherNameElement) {
-            teacherNameElement.textContent = teacherName;
+            teacherNameElement.textContent = posts[key].name;
           }
 
           var messageElement = document.getElementById(massage);
