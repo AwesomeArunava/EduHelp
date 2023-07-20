@@ -424,9 +424,9 @@ onChildAdded(newMsgRef, (snapshot) => {
   // This function will be triggered whenever a new child is added to the 'posts' path
   const newPostData = snapshot.val();
   console.log('New post added:', newPostData);
-
+  deleteAllElementsInDivById('message');
   // Call your fetchMessage() function here to handle the new post data
-  fetchMessage(newPostData);
+  fetchMessage();
 });
 
 

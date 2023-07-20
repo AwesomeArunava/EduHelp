@@ -79,75 +79,10 @@ function fetchTeacherId(){
     });
   
   }
-// student list show
-// document.addEventListener('DOMContentLoaded', function() {
-//   const dbRef = ref(getDatabase());
-//   get(child(dbRef, 'teachers')).then((snapshot) => {
-//     if (snapshot.exists()) {
-//       const teachersData = snapshot.val();
-//       var classroomData = teachersData[userId].classrooms;
-
-//       for (const key in classroomData) {
-//         if (classroomData.hasOwnProperty(key)) {
-//           console.log(classroomData[classCode]);
-//           const element = classroomData[classCode];
-//           // console.log(element);
-//           const studensList = element.students;
-//           // console.log('User Id is:', studensList);
-//           for(const key in studensList){
-            
-//             var studentId = studensList[key].studentUID;
-//             console.log(studentId);
-//             //student name list
-//             const dbRef = ref(getDatabase());
-//             get(child(dbRef, 'users')).then((snapshot) => {
-//               if (snapshot.exists()) {
-//                 const studentsData = snapshot.val();
-//                 var studentName = studentsData[studentId].studentInfo.student_name;
-//                 console.log(studentName);
-
-//                               // Inside the loop
-// var b = document.createElement('div');
-// // b.classList.add('col-sm-6', 'mt-3');
-
-// // Generate a unique key using `key` and timestamp
-// var uniqueKey = key + '-' + Date.now();
-
-// // Generate unique IDs for the elements within each div
-// var studentNameId = "StudentName-" + uniqueKey;
-
-
-// // Set the card content
-// b.innerHTML = ` <div class="card">
-//   <div class="card-body">
-//     <h5 class="card-title" id="${studentNameId}"></h5>
-    
-//   </div>
-// </div>`;
-
-// // Append the card to the target <div>
-// targetDiv.appendChild(b);
-
-// // Set the value of the elements within the current div
-// document.getElementById(studentNameId).textContent = studentName;
-
-//  }
-//             })
-            
-//         }
-//         break;
-//         }
-        
-//       }
-//     } else {
-//       console.log('No data available');
-//     }
-//   }).catch((error) => {
-//     console.error(error);
-//   });
-// });
+ 
 
 document.addEventListener('DOMContentLoaded', async function() {
+  
   try {
     const dbRef = ref(getDatabase());
     const snapshot = await get(child(dbRef, 'teachers'));
@@ -463,38 +398,7 @@ fetchMessage();
 
 
 });
-// fetch teacher name
 
-// async function teacherName() {
-//   try {
-//     const dbRef = ref(getDatabase());
-//     const snapshot = await get(child(dbRef, 'teachers'));
-    
-//     if (snapshot.exists()) {
-//       const teachersData = snapshot.val();
-//       const classroomData = teachersData[userId].classrooms;
-      
-//       for (const key in classroomData) {
-//         if (key === classCode) { // Correct the loop condition to check if key matches classCode
-//           console.log(classroomData[key]);
-//           const element = classroomData[key];
-//           const teacherName = element.teacherName;
-
-//           return teacherName; // Return the teacherName value
-//         }
-//       }
-
-//       console.log('classCode not found');
-//       return null; // Return null or any other default value if classCode is not found
-//     } else {
-//       console.log('No data available');
-//       return null; // Return null or any other default value if no data is available
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     return null; // Return null or any other default value in case of an error
-//   }
-// }
 
 
 
@@ -681,9 +585,9 @@ onChildAdded(newMsgRef, (snapshot) => {
   // This function will be triggered whenever a new child is added to the 'posts' path
   const newPostData = snapshot.val();
   console.log('New post added:', newPostData);
-
+  deleteAllElementsInDivById('message');
   // Call your fetchMessage() function here to handle the new post data
-  fetchMessage(newPostData);
+  fetchMessage();
 });
 
 
