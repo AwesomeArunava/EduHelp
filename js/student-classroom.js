@@ -27,7 +27,7 @@
    var targetDiv = document.getElementById('v-pills-tab');
    var data = [];
    // Assuming the URL is: https://example.com/page?param1=value1&param2=value2
-   const teacherUserId= localStorage.getItem('teacherUserId');
+  //  const teacherUserId= localStorage.getItem('teacherUserId');
 //    const UserId= localStorage.getItem('userId');
 // Get the current URL
 const url = new URL(window.location.href);
@@ -36,86 +36,84 @@ const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
 const classCode = params.get('classCode'); // "value1"
 console.log(classCode);
-// Use the values as needed
+fetchTeacherId();
+ const teacherUserId= localStorage.getItem('teacherUserId');
+// teacher Id fetch
 
 
-// student list show
-// document.addEventListener('DOMContentLoaded', function() {
-//   const dbRef = ref(getDatabase());
-//   get(child(dbRef, 'teachers')).then((snapshot) => {
-//     if (snapshot.exists()) {
-//       const teachersData = snapshot.val();
-//       var classroomData = teachersData[userId].classrooms;
-
-//       for (const key in classroomData) {
-//         if (classroomData.hasOwnProperty(key)) {
-//           console.log(classroomData[classCode]);
-//           const element = classroomData[classCode];
-//           // console.log(element);
-//           const studensList = element.students;
-//           // console.log('User Id is:', studensList);
-//           for(const key in studensList){
-            
-//             var studentId = studensList[key].studentUID;
-//             console.log(studentId);
-//             //student name list
-//             const dbRef = ref(getDatabase());
-//             get(child(dbRef, 'users')).then((snapshot) => {
-//               if (snapshot.exists()) {
-//                 const studentsData = snapshot.val();
-//                 var studentName = studentsData[studentId].studentInfo.student_name;
-//                 console.log(studentName);
-
-//                               // Inside the loop
-// var b = document.createElement('div');
-// // b.classList.add('col-sm-6', 'mt-3');
-
-// // Generate a unique key using `key` and timestamp
-// var uniqueKey = key + '-' + Date.now();
-
-// // Generate unique IDs for the elements within each div
-// var studentNameId = "StudentName-" + uniqueKey;
+  // if (snapshot.exists()) {
+    // const studentsData = snapshot.val();
+    // const b = studentsData;
+    // console.log(b);
+    // console.log(userId);
+  //  var classroom = studentsData[userId].classrooms;
+ 
 
 
-// // Set the card content
-// b.innerHTML = ` <div class="card">
-//   <div class="card-body">
-//     <h5 class="card-title" id="${studentNameId}"></h5>
+ function fetchTeacherId(){
+ 
+  const dbRef = ref(getDatabase());
     
-//   </div>
-// </div>`;
+  get(child(dbRef, 'teachers')).then((snapshot) => {
+      if (snapshot.exists()) {
+        var teachersData = snapshot.val();
+        // console.log(teachersData);
+        for (const key in teachersData) {
+          if (teachersData.hasOwnProperty(key)) {
+            const element = teachersData[key];
+            // console.log(element);
+            if (element.hasOwnProperty("classrooms")) {
+              // console.log(element.classrooms);
+              const allClass = element.classrooms;
+              for(const key in allClass){
+                // console.log(allClass[key].classroomCode);
+                if(allClass[key].classroomCode === classCode){
+                  // console.log(allClass[key].classroomCode);
+                  //  console.log(allClass[key].teacherUserId);           
+              // console.log(element.classrooms[classroomCode].classroomName);
+              const teacherUserId = allClass[key].userId;
+              console.log('User Id is:', teacherUserId);
+              localStorage.setItem('teacherUserId', teacherUserId);
+              break;
+              // Inside the loop
+                  
+                }
+              }
 
-// // Append the card to the target <div>
-// targetDiv.appendChild(b);
 
-// // Set the value of the elements within the current div
-// document.getElementById(studentNameId).textContent = studentName;
 
-//  }
-//             })
-            
-//         }
-//         break;
-//         }
-        
-//       }
-//     } else {
-//       console.log('No data available');
-//     }
-//   }).catch((error) => {
-//     console.error(error);
-//   });
-// });
+          }
+          }
+        }
+      } else {
+        console.log('No data available1');
+      }
+    
+    });
+  
+  }
+
+
+// console.log(teacherUserId);
+
+    
+  // } else {
+  //   console.log('No data available1');
+  // }
+// }).catch((error) => {
+//   console.error(error);
+
+
 
 document.addEventListener('DOMContentLoaded', async function() {
+  //  const teacherUserId= localStorage.getItem('teacherUserId');
   try {
     const dbRef = ref(getDatabase());
     const snapshot = await get(child(dbRef, 'teachers'));
     fetchMessage();
-   
     if (snapshot.exists()) {
       const teachersData = snapshot.val();
-      const classroomData = teachersData[userId].classrooms;
+      const classroomData = teachersData[teacherUserId].classrooms;
       
       for (const key in classroomData) {
         if (classroomData.hasOwnProperty(classCode)) {
@@ -461,6 +459,7 @@ deleteAllElementsInDivById('w-input-text');
 // post code 
 
 function writeNewPost(userId, classCode, time, date, message, studentName) {
+  // const teacherUserId= localStorage.getItem('teacherUserId');
   const db = getDatabase();
 
   // A post entry.
@@ -493,7 +492,8 @@ function deleteAllElementsInDivById(id) {
 }
 // fetch massage
 function fetchMessage(){
-  console.log("hello bachoo");
+  // const teacherUserId= localStorage.getItem('teacherUserId');
+  // console.log("hello bachoo");
 
   const dbRef = ref(getDatabase());
   get(child(dbRef, 'teachers')).then((snapshot) => {
