@@ -35,6 +35,7 @@ const classCode = params.get('classCode'); // "value1"
 console.log(classCode);
 // Use the values as needed
 fetchTeacherId();
+
 const teacherName = localStorage.getItem('teacherName');
 console.log(teacherName);
 function fetchTeacherId(){
@@ -82,11 +83,11 @@ function fetchTeacherId(){
  
 
 document.addEventListener('DOMContentLoaded', async function() {
-  
+  //  fetchMessage();
   try {
     const dbRef = ref(getDatabase());
     const snapshot = await get(child(dbRef, 'teachers'));
-    fetchMessage();
+   
    
     if (snapshot.exists()) {
       const teachersData = snapshot.val();
@@ -128,6 +129,7 @@ document.addEventListener('DOMContentLoaded', async function() {
           }
           break;
         }
+        
       }
     } else {
       console.log('No data available');
@@ -357,7 +359,7 @@ downloadExcel();
 // send massage and show massage
 var send = document.getElementById("send");
 send.addEventListener('click', ()=>{
-
+  
 // take massage value from text box
 var message= document.getElementById("w-input-text").textContent;
 // Create a new Date object to get the current date and time
@@ -384,17 +386,17 @@ const date = `${formattedDate}`
 console.log(date); // Output the current date and time in YYYY-MM-DD HH:mm:ss format
 
 console.log(time);
-
+// deleteAllElementsInDivById('message');
 
 writeNewPost(userId, classCode, time, date, message, teacherName);
 
 
 
 // Call the function and pass the id of the div you want to clear
-deleteAllElementsInDivById('message');
 
-fetchMessage();
-
+deleteAllElementsInDivById('w-input-text');
+// fetchMessage();
+// fetchMessage();
 
 
 });
@@ -534,9 +536,11 @@ console.log(classroomData);
             timeElement.textContent = posts[key].time;
           }
         }
+       
         }
         break;
         }
+       
       }
     } else {
       console.log('No data available');
@@ -565,7 +569,7 @@ const observerConfig = { childList: true }; // Observe child node additions
 observer.observe(messageContainer, observerConfig);
 
 // const dbRef = ref(getDatabase());
-// const newMsg = ref(dbRef, 'teachers/' + userId + '/classrooms/'+ classCode + '/posts/');
+
 // onChildAdded(newMsg, ()=>{fetchMessage();});
 
 // import { getDatabase, ref, onChildAdded } from 'firebase/database';
@@ -578,8 +582,8 @@ const db = getDatabase();
 // const classCode = '...';
 
 // Create a reference to the 'posts' path under the specific user and classroom
-const newMsgRef = ref(db, 'teachers/' + userId + '/classrooms/' + classCode + '/posts/');
 
+const newMsgRef = ref(db, 'teachers/' + userId + '/classrooms/'+ classCode + '/posts/');
 // Adding a listener for child added event
 onChildAdded(newMsgRef, (snapshot) => {
   // This function will be triggered whenever a new child is added to the 'posts' path
@@ -587,8 +591,81 @@ onChildAdded(newMsgRef, (snapshot) => {
   console.log('New post added:', newPostData);
   deleteAllElementsInDivById('message');
   // Call your fetchMessage() function here to handle the new post data
-  fetchMessage();
+  fetchMessage(newPostData);
 });
+
+
+
+
+
+// Check if the listener should run or not
+// const shouldRunListener = sessionStorage.getItem('shouldRunListener');
+
+// // Only add the listener if the shouldRunListener variable is not set or is set to true
+// if (shouldRunListener !== 'false') {
+//   // Replace this with your actual reference to the 'posts' path
+//   // const newMsgRef = firebase.database().ref('posts');
+//   const newMsgRef = ref(db, 'teachers/' + userId + '/classrooms/' + classCode + '/posts/');
+//   // Adding a listener for child added event
+//   onChildAdded(newMsgRef, (snapshot) => {
+//     // This function will be triggered whenever a new child is added to the 'posts' path
+//     const newPostData = snapshot.val();
+//     console.log('New post added:', newPostData);
+//     deleteAllElementsInDivById('message');
+//     // Call your fetchMessage() function here to handle the new post data
+//     fetchMessage(newPostData);
+//   });
+
+//   // Set the shouldRunListener variable to false after adding the listener
+//   sessionStorage.setItem('shouldRunListener', 'false');
+// }
+// In this code, we utilize the sessionStorage variable to store the flag shouldRunListener. When the page initially loads, the shouldRunListener will be null or not set in the sessionStorage, so the onChildAdded listener will be added. After adding the listener, we set the shouldRunListener to 'false' to prevent it from being added again on subsequent page reloads.
+
+
+
+
+
+
+
+
+// Check if the listener should run or not
+// const shouldRunListener = sessionStorage.getItem('shouldRunListener');
+
+// Only add the listener if the shouldRunListener variable is not set or is set to true
+
+  // Adding a listener for child added event
+  // onChildAdded(newMsgRef, (snapshot) => {
+  //   // This function will be triggered whenever a new child is added to the 'posts' path
+  //   const newPostData = snapshot.val();
+  //   console.log('New post added:', newPostData);
+  //   if (shouldRunListener !== 'false') {
+  //   deleteAllElementsInDivById('message');
+  //   // Call your fetchMessage() function here to handle the new post data
+  //   fetchMessage(newPostData);
+  //   sessionStorage.setItem('shouldRunListener', 'false');
+  // }
+  // });
+  // const shouldRunListener = sessionStorage.getItem('shouldRunListener');
+
+
+  // onChildAdded(newMsgRef, (snapshot) => {
+  //   // This function will be triggered whenever a new child is added to the 'posts' path
+  //   const newPostData = snapshot.val();
+  //   console.log('New post added:', newPostData);
+  
+  //   // Define the shouldRunListener variable within the scope of the listener function
+  // sessionStorage.setItem('shouldRunListener', 'false');
+  
+  //   if (shouldRunListener === 'false') {
+  //     deleteAllElementsInDivById('message');
+  //     // Call your fetchMessage() function here to handle the new post data
+  //     fetchMessage();
+  //     // sessionStorage.setItem('shouldRunListener', 'false');
+  //   }
+  // });
+  
+  // Set the shouldRunListener variable to false so that the listener won't run again on page reload
+
 
 
 

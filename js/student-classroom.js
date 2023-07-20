@@ -195,7 +195,7 @@ writeNewPost(userId, classCode, time, date, message, studentName2);
 // Call the function and pass the id of the div you want to clear
 deleteAllElementsInDivById('message');
 
-fetchMessage();
+// fetchMessage();
 
 deleteAllElementsInDivById('w-input-text');
 
