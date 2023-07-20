@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 body{
-    background-color: rgba(197, 227, 241, 0.516);
+    background-color: #272727!important;
     height: 100vh;
-    /* overflow: hidden; */
+    overflow: hidden;
+  
 }
 .logo-text{
     font-weight: bold;
@@ -11,7 +12,7 @@ body{
     color: rgb(17, 241, 17);
 }
 .nav-color{
-    background-color:#a5eef566;
+    background-color:#1e1f1f;
 }
 .profile-image {
     width: 150px;
@@ -109,10 +110,11 @@ body{
 .containerAll{
   height:87vh;
   position: relative;
+ 
 }
 
 .mainBody{
-  
+  background-color: #272727;
 }
  /* txt input css */
 .massage{
@@ -155,7 +157,7 @@ body {
 }
 /* Center stuff and background */
 .typeInput{
-  background: #efefef;
+  background: #0a0a0a!important;
   width: 100%!important;
   /* height: 100%; */
    display: flex;
@@ -337,4 +339,32 @@ h1 {
   border-top: 15px solid transparent;
   border-left: 0px solid transparent;
   border-bottom: 15px solid #ffffff;
+}
+
+/* side nav */
+.sideNav{
+  background-color: #11111188;
+  height: 100vh;
+  overflow: auto;
+}
+.card{
+  background-color: #111111!important;
+  color: white!important;
+  border-radius: 0%!important;
+}
+/* // delete icon */
+
+.delete{
+
+}
+
+.delete:hover{
+  color: red; /* Change the color to red on hover */
+  cursor: pointer; /* Show a pointer cursor on hover */
+}
+.chatProfileImg{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }

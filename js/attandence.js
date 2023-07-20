@@ -114,9 +114,14 @@ document.addEventListener('DOMContentLoaded', async function() {
               const uniqueKey = key + '-' + Date.now();
               const studentNameId = "StudentName-" + uniqueKey;
               
-              b.innerHTML = `<div class="card">
-                <div class="card-body">
-                  <h5 class="card-title" id="${studentNameId}"></h5>
+              b.innerHTML = `<div class="card ">
+                <div class="card-body d-flex justify-content-between">
+                <img
+                src="https://images.pexels.com/photos/2117283/pexels-photo-2117283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="" class="chatProfileImg"
+              />
+                  <h5 class="card-title mt-2" id="${studentNameId}"></h5>
+                  <i class="fa-solid fa-trash delete mt-3"></i>
                 </div>
               </div>`;
               

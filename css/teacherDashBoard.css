@@ -1,5 +1,5 @@
 header {
-	background-color: #333;
+  background-color: #272727!important;
 	padding: 20px;
 	position: fixed;
 	top: 0;
@@ -352,4 +352,8 @@ header .profile img {
 
 #noticeView{
   margin-top: 22px;
+}
+
+.nav-color{
+  background-color:#1e1f1f!important;
 }
