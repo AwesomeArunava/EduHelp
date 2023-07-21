@@ -1,7 +1,7 @@
    // Import the functions you need from the SDKs you need
    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
    import { getDatabase, ref, set, child, get, push, update, onChildAdded } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-   import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+   import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
    // TODO: Add SDKs for Firebase products that you want to use
    // https://firebase.google.com/docs/web/setup#available-libraries
    // Your web app's Firebase configuration
@@ -33,11 +33,20 @@ const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
 const classCode = params.get('classCode'); // "value1"
 console.log(classCode);
+const profileName= localStorage.getItem('teacherName');
+const profileEmail = localStorage.getItem('teacherEmail');
+document.getElementById("profileName").textContent = profileName;
+document.getElementById("profileEmail").textContent = profileEmail;
+// document.getElementById("profileEmail").textContent = teacherEmail;
+// const profileEmail= localStorage.getItem('email');
+ 
+//  document.getElementById("profileEmail").textContent = profileEmail;
 // Use the values as needed
 fetchTeacherId();
 
-const teacherName = localStorage.getItem('teacherName');
-console.log(teacherName);
+//  console.log("helooo fff");
+
+// console.log(teacherName);
 function fetchTeacherId(){
  
   const dbRef = ref(getDatabase());
@@ -121,7 +130,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 alt="" class="chatProfileImg"
               />
                   <h5 class="card-title mt-2" id="${studentNameId}"></h5>
-                  <i class="fa-solid fa-trash delete mt-3"></i>
+                  <i class="fa-solid fa-trash delete mt-3" id="remove"></i>
                 </div>
               </div>`;
               
@@ -146,123 +155,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
-// const downloadData = document.getElementById("downloadData");
-// downloadData.addEventListener("click", ()=>{
-  
-//   // alert("thik ache");
-//     const dbRef = ref(getDatabase());
-//     get(child(dbRef, 'teachers')).then((snapshot) => {
-//       if (snapshot.exists()) {
-//         const teachersData = snapshot.val();
-//         var classroomData = teachersData[userId].classrooms;
-  
-//         for (const key in classroomData) {
-//           if (classroomData.hasOwnProperty(key)) {
-//             console.log(classroomData[classCode]);
-//             const element = classroomData[classCode];
-//             // console.log(element);
-//             const studensList = element.students;
-//             // console.log('User Id is:', studensList);
-//             for(const key in studensList){
-              
-//               var studentId = studensList[key].studentUID;
-//               // console.log(studentId.studentUID);
-//               //student name list
-//               const dbRef = ref(getDatabase());
-//               get(child(dbRef, 'users')).then((snapshot) => {
-//                 if (snapshot.exists()) {
-//                   const studentsData = snapshot.val();
-//                   var studentName = studentsData[studentId].studentInfo;
-//                   console.log(studentName);
-//                   var data = studentName;
-                
-//                   // Create an array of arrays from the object data
-//                   var dataArray = data.map(obj => Object.values(obj));
-                  
-//                   // Create a new workbook and worksheet
-//                   var workbook = XLSX.utils.book_new();
-//                   var worksheet = XLSX.utils.aoa_to_sheet(dataArray);
-                  
-//                   // Add the worksheet to the workbook
-//                   XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-                  
-//                   // Convert the workbook to a binary Excel file
-//                   var excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
-                  
-//                   // Function to download the Excel file
-//                   function downloadExcel() {
-//                     var blob = new Blob([excelBuffer], { type: "application/octet-stream" });
-//                     saveAs(blob, "data.xlsx");
-//                   }
-//                   downloadExcel();
-
-  
-//                 }
-//               })
-            
-//           }
-//           break;
-//           }
-//         }
-//       } else {
-//         console.log('No data available');
-//       }
-//     }).catch((error) => {
-//       console.error(error);
-//     });
-
-// });
-
-// const downloadData = document.getElementById("downloadData");
-// downloadData.addEventListener("click", () => {
-//   try{
-//   const dbRef = ref(getDatabase());
-//   get(child(dbRef, 'teachers')).then((snapshot) => {
-//     if (snapshot.exists()) {
-//       const teachersData = snapshot.val();
-//       var classroomData = teachersData[userId].classrooms;
-
-//       for (const key in classroomData) {
-//         if (classroomData.hasOwnProperty(key)) {
-//           // console.log(classroomData[classCode]);
-//           const element = classroomData[classCode];
-//           // console.log(element);
-//           const studensList = element.students;
-//           // console.log('User Id is:', studensList);
-//           for (const key in studensList) {
-//             var studentId = studensList[key].studentUID;
-//             //student name list
-//             const dbRef = ref(getDatabase());
-//             get(child(dbRef, 'users')).then((snapshot) => {
-//               if (snapshot.exists()) {
-//                 const studentsData = snapshot.val();
-//                 var studentDeatails = studentsData[studentId].studentInfo;
-//                 console.log(studentDeatails);
-
-//                 // Convert studentName object to an array
-               
-//                 // data.push(studentName);
-               
-
-//                 // Create an array of arrays from the object data
-              
-//               }
-//             });
-//           }
-//           // excal(data);
-//           break;
-//         }
-//       }
-//     } else {
-//       console.log('No data available');
-//     }
-//   }).catch((error) => {
-//     console.error(error);
-//   });
-// } catch(error){
-//   console.log(error);
-// }
-// });
 
 const downloadData = document.getElementById("downloadData");
 downloadData.addEventListener("click", async () => {
@@ -331,35 +223,6 @@ downloadExcel();
 
 
 
-                // Assume you have an object containing data
-                // var data = [
-                //   { name: "John Doe", age: 25, email: "john@example.com" },
-                //   { name: "Jane Smith", age: 30, email: "jane@example.com" }
-                // ];
-                // var data = studentsData;
-                
-                // // Create an array of arrays from the object data
-                // var dataArray = data.map(obj => Object.values(obj));
-                
-                // // Create a new workbook and worksheet
-                // var workbook = XLSX.utils.book_new();
-                // var worksheet = XLSX.utils.aoa_to_sheet(dataArray);
-                
-                // // Add the worksheet to the workbook
-                // XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-                
-                // // Convert the workbook to a binary Excel file
-                // var excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
-                
-                // // Function to download the Excel file
-                // function downloadExcel() {
-                //   var blob = new Blob([excelBuffer], { type: "application/octet-stream" });
-                //   saveAs(blob, "data.xlsx");
-                // }
-                
-                // Attach click event to the download button
-                
-                // downloadData.addEventListener("click", downloadExcel);
 
 // send massage and show massage
 var send = document.getElementById("send");
@@ -573,20 +436,10 @@ const observer = new MutationObserver(scrollToBottom);
 const observerConfig = { childList: true }; // Observe child node additions
 observer.observe(messageContainer, observerConfig);
 
-// const dbRef = ref(getDatabase());
 
-// onChildAdded(newMsg, ()=>{fetchMessage();});
-
-// import { getDatabase, ref, onChildAdded } from 'firebase/database';
-
-// Assuming you have initialized Firebase and obtained a reference to the database
 const db = getDatabase();
 
-// Assuming you have defined 'userId' and 'classCode' variables
-// const userId = '...';
-// const classCode = '...';
 
-// Create a reference to the 'posts' path under the specific user and classroom
 
 const newMsgRef = ref(db, 'teachers/' + userId + '/classrooms/'+ classCode + '/posts/');
 // Adding a listener for child added event
@@ -603,28 +456,6 @@ onChildAdded(newMsgRef, (snapshot) => {
 
 
 
-// Check if the listener should run or not
-// const shouldRunListener = sessionStorage.getItem('shouldRunListener');
-
-// // Only add the listener if the shouldRunListener variable is not set or is set to true
-// if (shouldRunListener !== 'false') {
-//   // Replace this with your actual reference to the 'posts' path
-//   // const newMsgRef = firebase.database().ref('posts');
-//   const newMsgRef = ref(db, 'teachers/' + userId + '/classrooms/' + classCode + '/posts/');
-//   // Adding a listener for child added event
-//   onChildAdded(newMsgRef, (snapshot) => {
-//     // This function will be triggered whenever a new child is added to the 'posts' path
-//     const newPostData = snapshot.val();
-//     console.log('New post added:', newPostData);
-//     deleteAllElementsInDivById('message');
-//     // Call your fetchMessage() function here to handle the new post data
-//     fetchMessage(newPostData);
-//   });
-
-//   // Set the shouldRunListener variable to false after adding the listener
-//   sessionStorage.setItem('shouldRunListener', 'false');
-// }
-// In this code, we utilize the sessionStorage variable to store the flag shouldRunListener. When the page initially loads, the shouldRunListener will be null or not set in the sessionStorage, so the onChildAdded listener will be added. After adding the listener, we set the shouldRunListener to 'false' to prevent it from being added again on subsequent page reloads.
 
 
 
@@ -633,71 +464,49 @@ onChildAdded(newMsgRef, (snapshot) => {
 
 
 
-// Check if the listener should run or not
-// const shouldRunListener = sessionStorage.getItem('shouldRunListener');
-
-// Only add the listener if the shouldRunListener variable is not set or is set to true
-
-  // Adding a listener for child added event
-  // onChildAdded(newMsgRef, (snapshot) => {
-  //   // This function will be triggered whenever a new child is added to the 'posts' path
-  //   const newPostData = snapshot.val();
-  //   console.log('New post added:', newPostData);
-  //   if (shouldRunListener !== 'false') {
-  //   deleteAllElementsInDivById('message');
-  //   // Call your fetchMessage() function here to handle the new post data
-  //   fetchMessage(newPostData);
-  //   sessionStorage.setItem('shouldRunListener', 'false');
-  // }
-  // });
-  // const shouldRunListener = sessionStorage.getItem('shouldRunListener');
-
-
-  // onChildAdded(newMsgRef, (snapshot) => {
-  //   // This function will be triggered whenever a new child is added to the 'posts' path
-  //   const newPostData = snapshot.val();
-  //   console.log('New post added:', newPostData);
-  
-  //   // Define the shouldRunListener variable within the scope of the listener function
-  // sessionStorage.setItem('shouldRunListener', 'false');
-  
-  //   if (shouldRunListener === 'false') {
-  //     deleteAllElementsInDivById('message');
-  //     // Call your fetchMessage() function here to handle the new post data
-  //     fetchMessage();
-  //     // sessionStorage.setItem('shouldRunListener', 'false');
-  //   }
-  // });
-  
-  // Set the shouldRunListener variable to false so that the listener won't run again on page reload
-
-
-
-
-// Call scrollToBottom() after adding new content to keep the scroll bar at the bottom
 
 
 // For Card show on click
 
-const showCardButton = document.getElementById('show-card-button');
-const profileCard = document.getElementById('profile-card');
+// const showCardButton = document.getElementById('show-card-button');
+// const profileCard = document.getElementById('profile-card');
 
-let visible = false;
+// let visible = false;
 
-showCardButton.addEventListener("click", () => {
-  visible = !visible;
-  if (visible) {
-    profileCard.style.display = "block";
-  } else {
-    profileCard.style.display = "none";
-  }
-});
+// showCardButton.addEventListener("click", () => {
+//   visible = !visible;
+//   if (visible) {
+//     profileCard.style.display = "block";
+//   } else {
+//     profileCard.style.display = "none";
+//   }
+// });
 
 function setFocus () {
   document.getElementById('w-input-text').focus();
 }
 
+// Check authentication status on every page
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    // If user is not authenticated, redirect to login page
+    window.location.href = 'teacher-login.html';
+  }
+});
 
+// logout code is here
 
+function loginPage(){
+  
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    window.location.href = "teacher-login.html";
+  }).catch((error) => {
+    // An error happened.
+  });
+}
+
+var logOut = document.getElementById("logOut");
+logOut.addEventListener("click", loginPage);
 
 

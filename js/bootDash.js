@@ -1,7 +1,7 @@
    // Import the functions you need from the SDKs you need
    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
    import { getDatabase, ref, set, child, get, push, update } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-   import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+   import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
    // TODO: Add SDKs for Firebase products that you want to use
    // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,6 +22,8 @@
    const auth = getAuth();
    const provider = new GoogleAuthProvider();
    const UserId = localStorage.getItem('userId');
+   const teacherName = localStorage.getItem('teacherName');
+   const teacherEmail = localStorage.getItem('email');
    console.log(UserId);
 var createButton = document.getElementById('join');
 createButton.addEventListener('click', function() {
@@ -351,15 +353,92 @@ function joinCourse(UserId, classroomCode) {
 
 
 
-// logout code is here
-
-function loginPage(){
-   window.location.href = "login.html";
-}
-
-var logOut = document.getElementById("logOut");
-logOut.addEventListener("click", handleLogout);
 
 
 //Notice 
+var targetDiv1 = document.getElementById('notice');
 
+document.addEventListener('DOMContentLoaded', async function() {
+  //  const teacherUserId= localStorage.getItem('teacherUserId');
+  try {
+    const dbRef = ref(getDatabase());
+    const snapshot = await get(child(dbRef, 'users'));
+   
+    if (snapshot.exists()) {
+      const studentsData = snapshot.val();
+      // const studentData = teachersData[teacherUserId].classrooms;
+      const notices = studentsData[UserId].notice;
+      for (const key in notices) {
+       
+        
+
+            
+          
+              // Inside the loop
+              const b = document.createElement('div');
+              b.classList.add('demo-card', 'demo-card--step1');
+
+              const uniqueKey = key + '-' + Date.now();
+              const studentNameId = "StudentName-" + uniqueKey;
+              const titleId = "Title-" + uniqueKey;
+              const descriptionId = "Description-" + uniqueKey;
+              const dateId = "Date-" + uniqueKey;
+              b.innerHTML = `
+              <div class="head">
+                <div class="number-box">
+                  <span id="${dateId}">01</span>
+                </div>
+                <h2 id="${titleId}"><span class="small">Subtitle</span> EXAM </h2> <br>
+                <!-- <div class="view"> 
+              <a href="">View</a>
+            </div> -->
+              </div>
+              <div class="body">
+                <p id="${descriptionId}">Your Exam going On.</p>
+                <!-- <img src="images/exam.jpg" alt="Graphic">  -->
+
+              </div>
+            `;
+              
+              // Append the card to the target <div>
+              targetDiv1.appendChild(b);
+              
+              // Set the value of the elements within the current div
+              document.getElementById(dateId).textContent = notices[key].date;
+              document.getElementById(descriptionId).textContent = notices[key].description;
+              document.getElementById(titleId).textContent = notices[key].title;
+
+            
+         
+        
+      }
+    } else {
+      console.log('No data available');
+    }
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+
+// Check authentication status on every page
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    // If user is not authenticated, redirect to login page
+    window.location.href = 'login.html';
+  }
+});
+// logout code is here
+
+function loginPage(){
+ 
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    window.location.href = "login.html";
+  }).catch((error) => {
+    // An error happened.
+  });
+}
+
+var logOut = document.getElementById("logOut");
+logOut.addEventListener("click", loginPage);

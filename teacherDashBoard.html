@@ -56,12 +56,12 @@
           </div>
           <div class="modal-body d-flex align-items-center flex-column">
             <img src="images/pp.jpg" alt="Profile Image" class="profile-image">
-            <h2 class="profile-name" id="profileName">Mr. Panda</h2>
+            <h2 class="profile-name" id="profileName"></h2>
             <p class="profile-bio" id="profileEmail">spider2854@gmail.com</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="logOut" onclick="loginPage()">Logout</button>
+            <button type="button" class="btn btn-primary" id="logOut">Logout</button>
           </div>
         </div>
 
@@ -443,7 +443,7 @@
           </div>
         </div> 
   
-          <form id="messageForm">
+          <!-- <form id="messageForm"> -->
             <div class="form-floating mb-3">
               <textarea class="form-control" placeholder="Enter Notice Title" id="floatingTextareaDisabled" ></textarea>
               <label for="floatingTextareaDisabled">Title</label>
@@ -452,7 +452,7 @@
               <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2Disabled" style="height: 100px"></textarea>
               <label for="floatingTextarea2Disabled">Write Your Notice</label>
             </div>
-            <div class="form-floating">
+            <!-- <div class="form-floating">
               <select class="form-select " id="floatingSelectDisabled" aria-label="Floating label disabled select example">
                 <option selected>Open this select menu</option>
                 <option value="1">Sem 1</option>
@@ -464,16 +464,16 @@
 
               </select>
               <label for="floatingSelectDisabled">Select One</label>
-            </div> <br>
+            </div> <br> -->
 
             <div class="mb-3">
               <label for=""></label>
-              <input class="form-control" type="file" id="formFile">
+              <input class="form-control" type="file" id="formFile" accept="image/jpeg, image/png">
             </div>
              <br>
         
-          <button type="button" class="btn btn-outline-primary">Submit Now</button>
-          </form>
+          <button type="button" class="btn btn-outline-primary" id="notice_submit">Submit Now</button>
+          <!-- </form> -->
     </div>
 
  
@@ -503,6 +503,7 @@
 
 <!-- For subject change request from students for teachers -->
 <script src="js/subchange_teacher.js"></script>
+<script type="module" src="js/notice.js"></script>
 
 </body>
 

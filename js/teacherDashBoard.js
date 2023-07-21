@@ -1,7 +1,7 @@
    // Import the functions you need from the SDKs you need
    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
    import { getDatabase, ref, set, child, get, push, update } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-   import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+   import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
    // TODO: Add SDKs for Firebase products that you want to use
    // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,7 +23,11 @@
    const provider = new GoogleAuthProvider();
    const userId = localStorage.getItem('userId');
    console.log(userId);
-
+//profile name and email
+const teacherName = localStorage.getItem('teacherName');
+const teacherEmail = localStorage.getItem('teacherEmail');
+document.getElementById("profileName").textContent = teacherName;
+document.getElementById("profileEmail").textContent = teacherEmail;
 // add course card logic
 
 var createButton = document.getElementById('create');
@@ -259,8 +263,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (classroomData.hasOwnProperty(key)) {
           const element = classroomData[key];
           const teacherUserId = element.userId;
+          const teacherName = element.teacherName;
+          console.log(teacherName);
           console.log('User Id is:', teacherUserId);
-
+          localStorage.setItem('teacherName', teacherName);
           var b = document.createElement('div');
           b.classList.add('col-sm-6', 'mt-3');
 
@@ -308,15 +314,38 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// function loginPage(){
+//   window.location.href = "teacher-login.html";
+//     // Perform logout action here
+//     signOut(auth).then(() => {
+//       // Sign-out successful.
+//     }).catch((error) => {
+//       // An error happened.
+//     });
+// }
+
+// var logOut = document.getElementById("logOut");
+// logOut.addEventListener("click", handleLogout);
+// Check authentication status on every page
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    // If user is not authenticated, redirect to login page
+    window.location.href = 'teacher-login.html';
+  }
+});
+
+// logout code is here
+
 function loginPage(){
-  window.location.href = "teacher-login.html";
-    // Perform logout action here
-    signOut(auth).then(() => {
-      // Sign-out successful.
-    }).catch((error) => {
-      // An error happened.
-    });
+  
+
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    window.location.href = "teacher-login.html";
+  }).catch((error) => {
+    // An error happened.
+  });
 }
 
 var logOut = document.getElementById("logOut");
-logOut.addEventListener("click", handleLogout);
+logOut.addEventListener("click", loginPage);

@@ -1,7 +1,7 @@
    // Import the functions you need from the SDKs you need
    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
    import { getDatabase, ref, set, child, get, push, update, onChildAdded } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-   import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+   import { getAuth,  createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, sendSignInLinkToEmail, isSignInWithEmailLink, sendEmailVerification, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
    // TODO: Add SDKs for Firebase products that you want to use
    // https://firebase.google.com/docs/web/setup#available-libraries
    // Your web app's Firebase configuration
@@ -38,6 +38,10 @@ const classCode = params.get('classCode'); // "value1"
 console.log(classCode);
 fetchTeacherId();
  const teacherUserId= localStorage.getItem('teacherUserId');
+ const profileName= localStorage.getItem('name');
+ const profileEmail= localStorage.getItem('email');
+  document.getElementById("profileName").textContent = profileName;
+  document.getElementById("profileEmail").textContent = profileEmail;
 // teacher Id fetch
 
 
@@ -434,25 +438,46 @@ onChildAdded(newMsgRef, (snapshot) => {
 
 // For Card show on click
 
-const showCardButton = document.getElementById('show-card-button');
-const profileCard = document.getElementById('profile-card');
+// const showCardButton = document.getElementById('show-card-button');
+// const profileCard = document.getElementById('profile-card');
 
-let visible = false;
+// let visible = false;
 
-showCardButton.addEventListener("click", () => {
-  visible = !visible;
-  if (visible) {
-    profileCard.style.display = "block";
-  } else {
-    profileCard.style.display = "none";
+// showCardButton.addEventListener("click", () => {
+//   visible = !visible;
+//   if (visible) {
+//     profileCard.style.display = "block";
+//   } else {
+//     profileCard.style.display = "none";
+//   }
+// });
+
+// function setFocus () {
+//   document.getElementById('w-input-text').focus();
+// }
+
+
+// Check authentication status on every page
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    // If user is not authenticated, redirect to login page
+    window.location.href = 'login.html';
   }
 });
 
-function setFocus () {
-  document.getElementById('w-input-text').focus();
+// logout code is here
+
+function loginPage(){
+ 
+signOut(auth).then(() => {
+  // Sign-out successful.
+  window.location.href = "login.html";
+}).catch((error) => {
+  // An error happened.
+});
+
 }
 
-
-
-
+var logOut = document.getElementById("logOut");
+logOut.addEventListener("click", loginPage);
 

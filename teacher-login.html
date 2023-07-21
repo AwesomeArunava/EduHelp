@@ -63,7 +63,7 @@
       </div>
     </div>
 
-    <script src="js/login.js"></script>
+    <!-- <script src="js/login.js"></script> -->
     <script
       src="https://kit.fontawesome.com/7ef29e0724.js"
       crossorigin="anonymous"
@@ -179,7 +179,9 @@
               var userId = user.uid; 
               // Assuming you have the user ID stored in a variable called "userId"
               localStorage.setItem('userId', userId);
-              
+              const teacherEmail = user.email;
+          localStorage.setItem('teacherEmail', teacherEmail);
+          // console.log(user);
               const dbRef = ref(getDatabase());
               get(child(dbRef, `teachers/${userId}`))
                 .then((snapshot) => {

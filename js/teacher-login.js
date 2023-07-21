@@ -39,7 +39,7 @@ signup.addEventListener('click', (e) => {
           // https://firebase.google.com/docs/reference/js/firebase.User
           const userId = user.uid;
           console.log(userId)
-
+        o
           // write on data base
 
           function writeUserData(userId, name, email) {
@@ -90,6 +90,10 @@ signin.addEventListener('click', (f) => {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
             const uid = user.uid;
+            console.log(uid);
+          const teacherEmail = user.email;
+          localStorage.setItem('teacherEmail', teacherEmail);
+
             const data = {
               name: "Arunava",
               email: "arun@gmail.com",
@@ -97,7 +101,7 @@ signin.addEventListener('click', (f) => {
             };
 
             sessionStorage.setItem('data', JSON.stringify(data));
-            window.location.href = '/bootDash.html';
+            // window.location.href = '/bootDash.html';
             // console.log(uid)
             // ...
           } else {

@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/event.css">
   <link rel="stylesheet" href="./css/notice.css">
   <link rel="stylesheet" href="css/backGround.css">
- 
+
   <title>EduHelp</title>
 </head>
 
@@ -58,7 +58,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="logOut" onclick="loginPage()">Logout</button>
+            <button type="button" class="btn btn-primary" id="logOut">Logout</button>
           </div>
         </div>
 
@@ -71,65 +71,66 @@
   </header>
 
   <!-- Backgound  -->
-  <div class="area" >
+  <div class="area">
     <ul class="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
 
-  <main class="d-inline-flex align-items-start p-2 mt-3 w-100 ">
-    <!-- side nav -->
-    <div class="nav flex-column nav-pills w-25" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-        aria-controls="v-pills-home" aria-selected="true">Home</a>
-      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-        aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-        aria-controls="v-pills-messages" aria-selected="false">Subject Change</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-        aria-controls="v-pills-settings" aria-selected="false">Event</a>
-        <a class="nav-link" id="v-pills-notice-tab" data-toggle="pill" href="#v-pills-notice" role="tab"
-        aria-controls="v-pills-notice" aria-selected="false">Notice</a>
-    </div>
-    <!-- side nav content -->
-    <div class="tab-content w-100" id="v-pills-tabContent">
-      <div class="tab-pane fade show active w-100" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-        <div class="d-flex justify-content-between">
-          <div>
+      <main class="d-inline-flex align-items-start p-2 mt-3 w-100 ">
+        <!-- side nav -->
+        <div class="nav flex-column nav-pills w-25" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+            aria-controls="v-pills-home" aria-selected="true">Home</a>
+          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+            aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+          <!-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+        aria-controls="v-pills-messages" aria-selected="false">Subject Change</a> -->
+          <!-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
+        aria-controls="v-pills-settings" aria-selected="false">Event</a> -->
+          <a class="nav-link" id="v-pills-notice-tab" data-toggle="pill" href="#v-pills-notice" role="tab"
+            aria-controls="v-pills-notice" aria-selected="false">Notice</a>
+        </div>
+        <!-- side nav content -->
+        <div class="tab-content w-100" id="v-pills-tabContent">
+          <div class="tab-pane fade show active w-100" id="v-pills-home" role="tabpanel"
+            aria-labelledby="v-pills-home-tab">
             <div class="d-flex justify-content-between">
-              <h1 class="ml-3 fs-3">Courses Overview</h1>
-              <!-- Button trigger modal -->
-              <div type="button" class="d-inline-flex mt-1" data-bs-toggle="modal" data-bs-target="#exampleModa2">
-                <img class="plus" width="42" height="42" src="images/plus.png" />
-                <h4 class="mt-2 ml-2">Join Course</h4>
-              </div>
-              
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabe1"
-                  aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">
-                          Create Classroom
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body d-flex flex-column align-items-center justify-content-between">
+              <div>
+                <div class="d-flex justify-content-between">
+                  <h1 class="ml-3 fs-3">Courses Overview</h1>
+                  <!-- Button trigger modal -->
+                  <div type="button" class="d-inline-flex mt-1" data-bs-toggle="modal" data-bs-target="#exampleModa2">
+                    <img class="plus" width="42" height="42" src="images/plus.png" />
+                    <h4 class="mt-2 ml-2">Join Course</h4>
+                  </div>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabe1"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">
+                            Create Classroom
+                          </h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex flex-column align-items-center justify-content-between">
 
 
-                        <div class="form-group d-flex justify-content-between gap-3">
-                              <label for="classroom-name">ClassroomCode:</label>
-                              <input type="text" id="classroomCode" placeholder="Enter classroom name">
-                            </div>
-                            <!-- <div class="form-group d-flex justify-content-between gap-3">
+                          <div class="form-group d-flex justify-content-between gap-3">
+                            <label for="classroom-name">ClassroomCode:</label>
+                            <input type="text" id="classroomCode" placeholder="Enter classroom name">
+                          </div>
+                          <!-- <div class="form-group d-flex justify-content-between gap-3">
                               <label for="teacher-name">Teacher Name:</label>
                               <input type="text" id="teacher-name" placeholder="Enter teacher name">
                             </div>
@@ -138,479 +139,441 @@
                               <input type="text" id="semester" placeholder="Enter semester">
                             </div> -->
 
-                       
 
 
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                          </button>
+                          <div class="form-group">
+                            <button type="button" class="btn btn-primary" id="join">
+                              Join
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                          Close
-                        </button>
-                        <div class="form-group">
-                        <button type="button" class="btn btn-primary" id="join">
-                        Join
-                        </button>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row ml-1" id="course-list">
+
+
+
+
+                </div>
+                <div class="ml-3 mt-3">
+                  <h3>Notice</h3>
+                  <div class="alert alert-primary mt-3" role="alert">
+                    <p id="receivedMessage">Notice Title</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="calender mr-3 ml-3">
+                  <iframe
+                    src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FKolkata&showTitle=0&showNav=1&showPrint=0&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4tZ2IuaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043&color=%230B8043"
+                    style="border: 0" width="300" height="300" frameborder="0" scrolling="no"></iframe>
+                </div>
+                <div>
+                  <h3 class="ml-3 mt-3">Today</h3>
+                  <div class="ml-3 mr-3 mt-3">
+                    <div class="alert alert-primary" role="alert">
+                      A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-primary" role="alert">
+                      A simple primary alert—check it out!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <div class="student-profile py-2">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-5">
+                    <div class="card shadow-sm">
+                      <div class="edit" id="edit">
+                        <i class="fa-regular fa-pen-to-square"></i>
                       </div>
+
+                      <div class="card-header bg-transparent text-center">
+                        <img class="profile_img" src="images/pp.jpg" alt="" />
+                        <h3 id="student_name1"></h3>
+                      </div>
+                      <div class="card-body">
+                        <p class="mb-0">
+                          <strong class="pr-1">Collage Roll: </strong><input id="collage_roll_1"
+                            style=" pointer-events: none; border:none;"></input>
+                        </p>
+                        <p class="mb-0"><strong class="pr-1">Sem: </strong><input id="sem_1"
+                            style=" pointer-events: none; border:none;"></input></p>
+                        <p class="mb-0">
+                          <strong class="pr-1">Session: </strong><input id="session_1"
+                            style=" pointer-events: none; border:none;"></input>
+                        </p>
+                        <p class="mb-0">
+                          <strong class="pr-1">Contact No.: </strong><input id="contact_number_1"
+                            style=" pointer-events: none; border:none;"></input>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                      <div class="card-header bg-transparent border-0">
+                        <h3 class="mb-0">
+                          <i class="far fa-clone pr-2"></i>Contact Information
+                        </h3>
+                      </div>
+                      <div class="card-body pt-0">
+                        <table class="table table-bordered pl-3">
+                          <tr>
+                            <th width="30%">Father's Name:</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="father_name" class="container" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Address</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="address" class="container" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">City</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="city" class="container" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">P.S</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="ps" class="container" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Dist</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="dist" class="container" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">State</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="state" class="container" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Pin Code</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="pin_code" class="container" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Aadhar No</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="adhar" class="container" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Contact No.</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="contact_number" class="container" /></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-7">
+                    <div class="card shadow-sm">
+                      <div class="card-header general bg-transparent border-0">
+                        <h3 class="mb-0">
+                          <i class="far fa-clone pr-1"></i> General Information
+                        </h3>
+                        <button class="save" id="save">Save</button>
+                      </div>
+                      <div class="card-body pt-0">
+                        <table class="table table-bordered">
+                          <tr>
+                            <th width="30%">Reg</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="reg" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Academic Year</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="academic_year" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Gender</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="gender" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">DOB</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="dob" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Religion</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="religion" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">blood</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="blood" /></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                      <div class="card-header bg-transparent border-0">
+                        <h3 class="mb-0">
+                          <i class="far fa-clone pr-1"></i>Academic Information
+                        </h3>
+                      </div>
+                      <div class="card-body pt-0">
+                        <table class="table table-bordered">
+                          <tr>
+                            <th width="30%">Department</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="department" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Collage</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="collage" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Collage Roll</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="collage_roll" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Sem</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="sem" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Session</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="session" /></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                      <div class="card-header bg-transparent border-0">
+                        <h3 class="mb-0">
+                          <i class="far fa-clone pr-1"></i>Subjects Information
+                        </h3>
+                      </div>
+                      <div class="card-body pt-0">
+                        <table class="table table-bordered">
+                          <tr>
+                            <th width="30%">Paper 1</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="paper_1" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Paper 2</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="paper_2"></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Paper 3</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="paper_3" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Paper 4</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="paper_4" /></td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Paper 5</th>
+                            <td width="2%">:</td>
+                            <td><input type="text" id="paper_5" /></td>
+                          </tr>
+                        </table>
                       </div>
                     </div>
                   </div>
                 </div>
-             
-            </div>
-            <div class="row ml-1" id="course-list">
-              
-         
-      
-       
-            </div>
-            <div class="ml-3 mt-3">
-              <h3>Notice</h3>
-              <div class="alert alert-primary mt-3" role="alert">
-                <p id="receivedMessage">Notice Title</p>
               </div>
             </div>
           </div>
-          <div>
-            <div class="calender mr-3 ml-3">
-              <iframe
-                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FKolkata&showTitle=0&showNav=1&showPrint=0&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4tZ2IuaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043&color=%230B8043"
-                style="border: 0" width="300" height="300" frameborder="0" scrolling="no"></iframe>
-            </div>
-            <div>
-              <h3 class="ml-3 mt-3">Today</h3>
-              <div class="ml-3 mr-3 mt-3">
-                <div class="alert alert-primary" role="alert">
-                  A simple primary alert—check it out!
-                </div>
-                <div class="alert alert-primary" role="alert">
-                  A simple primary alert—check it out!
+
+
+          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            <!-- surojit likh be -->
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <h3 class="animate-sub">SUBJECT CHANGE</h3>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+            <br>
+            <div class="form-body">
+              <div class="row">
+                <div class="form-holder">
+                  <div class="form-content">
+                    <div class="form-items">
+                      <form class="requires-validation" id="subjectChangeForm" action="status.html" method="post"
+                        novalidate>
 
-      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-        <div class="student-profile py-2">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-5">
-                <div class="card shadow-sm">
-                  <div class="edit" id="edit">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </div>
+                        <div class="col-md-12">
+                          <input class="form-control" type="text" id="name" name="name" placeholder="Full Name"
+                            required>
+                          <div class="valid-feedback">Username field is valid!</div>
+                          <div class="invalid-feedback">Username field cannot be blank!</div>
+                        </div> <br>
 
-                  <div class="card-header bg-transparent text-center">
-                    <img class="profile_img" src="images/pp.jpg" alt="" />
-                    <h3 id="student_name1"></h3>
-                  </div>
-                  <div class="card-body">
-                    <p class="mb-0" >
-                      <strong class="pr-1">Collage Roll: </strong><input id="collage_roll_1" style=" pointer-events: none; border:none;"></input>
-                    </p>
-                    <p class="mb-0"><strong class="pr-1">Sem: </strong><input id="sem_1" style=" pointer-events: none; border:none;"></input></p>
-                    <p class="mb-0">
-                      <strong class="pr-1">Session: </strong><input id="session_1" style=" pointer-events: none; border:none;"></input>
-                    </p>
-                    <p class="mb-0">
-                      <strong class="pr-1">Contact No.: </strong><input id="contact_number_1" style=" pointer-events: none; border:none;"></input>
-                    </p>
-                  </div>
-                </div>
+                        <div class="col-md-12">
+                          <input class="form-control" type="text" id="regNo" name="regNo"
+                            placeholder="Registration Number" required>
+                          <div class="valid-feedback">Email field is valid!</div>
+                          <div class="invalid-feedback">Email field cannot be blank!</div>
+                        </div>
 
-                <div class="card shadow-sm">
-                  <div class="card-header bg-transparent border-0">
-                    <h3 class="mb-0">
-                      <i class="far fa-clone pr-2"></i>Contact Information
-                    </h3>
-                  </div>
-                  <div class="card-body pt-0">
-                    <table class="table table-bordered pl-3">
-                      <tr>
-                        <th width="30%">Father's Name:</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="father_name" class="container"/></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Address</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="address" class="container"/></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">City</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="city" class="container"/></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">P.S</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="ps" class="container"/></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Dist</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="dist" class="container"/></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">State</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="state" class="container"/></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Pin Code</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="pin_code" class="container"/></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Aadhar No</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="adhar" class="container"/></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Contact No.</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="contact_number" class="container"/></td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-7">
-                <div class="card shadow-sm">
-                  <div class="card-header general bg-transparent border-0">
-                    <h3 class="mb-0">
-                      <i class="far fa-clone pr-1"></i> General Information
-                    </h3>
-                    <button class="save" id="save">Save</button>
-                  </div>
-                  <div class="card-body pt-0">
-                    <table class="table table-bordered">
-                      <tr>
-                        <th width="30%">Reg</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="reg" /></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Academic Year</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="academic_year" /></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Gender</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="gender" /></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">DOB</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="dob" /></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Religion</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="religion" /></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">blood</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="blood" /></td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="card shadow-sm">
-                  <div class="card-header bg-transparent border-0">
-                    <h3 class="mb-0">
-                      <i class="far fa-clone pr-1"></i>Academic Information
-                    </h3>
-                  </div>
-                  <div class="card-body pt-0">
-                    <table class="table table-bordered">
-                      <tr>
-                        <th width="30%">Department</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="department" /></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Collage</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="collage" /></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Collage Roll</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="collage_roll" /></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Sem</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="sem" /></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Session</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="session" /></td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="card shadow-sm">
-                  <div class="card-header bg-transparent border-0">
-                    <h3 class="mb-0">
-                      <i class="far fa-clone pr-1"></i>Subjects Information
-                    </h3>
-                  </div>
-                  <div class="card-body pt-0">
-                    <table class="table table-bordered">
-                      <tr>
-                        <th width="30%">Paper 1</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="paper_1"/></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Paper 2</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="paper_2"></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Paper 3</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="paper_3"/></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Paper 4</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="paper_4"/></td>
-                      </tr>
-                      <tr>
-                        <th width="30%">Paper 5</th>
-                        <td width="2%">:</td>
-                        <td><input type="text" id="paper_5"/></td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
- <!-- surojit likh be -->
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <h3 class="animate-sub">SUBJECT CHANGE</h3>
-            </div>
-          </div>
-        </div> 
-        <br>
-<div class="form-body">
-  <div class="row">
-      <div class="form-holder">
-          <div class="form-content">
-              <div class="form-items">
-                  <form class="requires-validation" id="subjectChangeForm" action="status.html" method="post" novalidate>
-
-                      <div class="col-md-12">
-                         <input class="form-control" type="text" id="name" name="name" placeholder="Full Name" required>
-                         <div class="valid-feedback">Username field is valid!</div>
-                         <div class="invalid-feedback">Username field cannot be blank!</div>
-                      </div> <br>
-
-                      <div class="col-md-12">
-                          <input class="form-control" type="text" id="regNo" name="regNo" placeholder="Registration Number" required>
-                           <div class="valid-feedback">Email field is valid!</div>
-                           <div class="invalid-feedback">Email field cannot be blank!</div>
-                      </div>
-
-                     <div class="col-md-12">
+                        <div class="col-md-12">
                           <select class="form-select mt-3" id="presentSubject" name="presentSubject" required>
-                                <option selected disabled value="">Present Subject</option>
-                                <option value="jweb">Junior Web Developer</option>
-                                <option value="sweb">Senior Web Developer</option>
-                                <option value="pmanager">Project Manager</option>
-                         </select>
+                            <option selected disabled value="">Present Subject</option>
+                            <option value="jweb">Junior Web Developer</option>
+                            <option value="sweb">Senior Web Developer</option>
+                            <option value="pmanager">Project Manager</option>
+                          </select>
 
                           <!-- <div class="valid-feedback">You selected a position!</div>
                           <div class="invalid-feedback">Please select a position!</div> -->
-                     </div>
+                        </div>
 
-                     <div class="col-md-12">
-                      <select class="form-select mt-3"  id="newSubject" name="newSubject" required>
+                        <div class="col-md-12">
+                          <select class="form-select mt-3" id="newSubject" name="newSubject" required>
                             <option selected disabled value="">New Subject</option>
                             <option value="jweb">Junior Web Developer</option>
                             <option value="sweb">Senior Web Developer</option>
                             <option value="pmanager">Project Manager</option>
-                     </select>
+                          </select>
 
-                      <!-- <div class="valid-feedback">You selected a position!</div>
+                          <!-- <div class="valid-feedback">You selected a position!</div>
                       <div class="invalid-feedback">Please select a position!</div> -->
-                 </div>
-                 <br>
+                        </div>
+                        <br>
 
-                 <div class="d-grid gap-2 col-6 mx-auto">
-                  <button class="btn btn-primary" type="submit" value="Submit">SUBMIT</button>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                          <button class="btn btn-primary" type="submit" value="Submit">SUBMIT</button>
+                        </div>
+
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <div class=" container slider">
+              <div class="slides">
+                <div class="slide">
+                  <img src="images/s1.png" alt="Slide 1">
+                  <div class="caption">Caption for Slide 1</div>
                 </div>
 
-                  </form>
+                <div class="slide">
+                  <img src="images/s2.jpeg" alt="Slide 2">
+                  <div class="caption">Caption for Slide 2</div>
+                </div>
+
+                <div class="slide">
+                  <img src="images/s3.jpeg" alt="Slide 3">
+                  <div class="caption">Caption for Slide 3</div>
+                </div>
+
               </div>
+
+              <div class="controls">
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next mr-4" onclick="changeSlide(1)">&#10095;</a>
+              </div>
+
+              <div class="dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+              </div>
+
+            </div>
           </div>
-      </div>
-  </div>
-</div> 
- </div>
+          <div class="tab-pane fade" id="v-pills-notice" role="tabpanel" aria-labelledby="v-pills-notice-tab">
+
+            <!-- Show Notice Section  -->
+
+            <section id="timeline">
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <h3 class="animate-charcter">NOTICE BOARD</h3>
+                  </div>
+                </div>
+              </div>
+
+              <p class="leader">Your All Query Now On Your Hand.</p>
+              <div class="demo-card-wrapper" id="notice">
+               <!-- <div class="demo-card demo-card--step1">
+                  <div class="head">
+                    <div class="number-box">
+                      <span>01</span>
+                    </div>
+                    <h2 id="title"><span class="small">Subtitle</span> EXAM </h2> <br>
+                    <div class="view"> 
+                  <a href="">View</a>
+                </div>
+                  </div>
+                  <div class="body">
+                    <p id="description">Your Exam going On.</p>
+                    <img src="images/exam.jpg" alt="Graphic"> 
+
+                  </div>
+                </div>  -->
+
+                <!-- <div class="demo-card demo-card--step2">
+                  <div class="head">
+                    <div class="number-box">
+                      <span>02</span>
+                    </div>
+                    <h2><span class="small">Subtitle</span> SEMINAR</h2><br>
+                    <div class="view">
+                      <a href="">View</a>
+                    </div>
+                  </div>
+                  <div class="body">
+                    <p>Leadership Seminer.</p>
+                    <img src="images/seminar.jpg" alt="Graphic">
+                  </div>
+                </div> -->
 
 
-      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-        <div class=" container slider">
-          <div class="slides">
-            <div class="slide">
-              <img src="images/s1.png" alt="Slide 1">
-              <div class="caption">Caption for Slide 1</div>
-            </div>
-  
-            <div class="slide">
-              <img src="images/s2.jpeg" alt="Slide 2">
-              <div class="caption">Caption for Slide 2</div>
-            </div>
-  
-            <div class="slide">
-              <img src="images/s3.jpeg" alt="Slide 3">
-              <div class="caption">Caption for Slide 3</div>
-            </div>
-  
+                </div>
+
+
+            </section>
+
+
           </div>
-  
-          <div class="controls">
-            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-            <a class="next mr-4" onclick="changeSlide(1)">&#10095;</a>
-          </div>
-  
-          <div class="dots">
-            <span class="dot active" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-          </div>
-  
+          </section>
+
         </div>
-      </div>
-      <div class="tab-pane fade" id="v-pills-notice" role="tabpanel" aria-labelledby="v-pills-notice-tab">
-        
-        <!-- Show Notice Section  -->
 
-        <section id=timeline>
-
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 text-center">
-                <h3 class="animate-charcter">NOTICE BOARD</h3>
-              </div>
-            </div>
-          </div>
-
-          <p class="leader">Your All Query Now On Your Hand.</p>
-          <div class="demo-card-wrapper">
-            <div class="demo-card demo-card--step1">
-              <div class="head">
-                <div class="number-box">
-                  <span>01</span>
-                </div>
-                <h2><span class="small">Subtitle</span> EXAM </h2> <br>
-                <div class="view"> 
-                  <a href="">View</a>
-                </div>
-              </div>
-              <div class="body">
-                <p>Your Exam going On.</p>
-                <img src="images/exam.jpg" alt="Graphic"> 
-              
-              </div>
-            </div>
-        
-            <div class="demo-card demo-card--step2">
-              <div class="head">
-                <div class="number-box">
-                  <span>02</span>
-                </div>
-                <h2><span class="small">Subtitle</span> SEMINAR</h2><br>
-                <div class="view"> 
-                  <a href="">View</a>
-                </div>
-              </div>
-              <div class="body">
-                <p>Leadership Seminer.</p>
-                <img src="images/seminar.jpg" alt="Graphic">
-              </div>
-            </div>
-        
-            <div class="demo-card demo-card--step3">
-              <div class="head">
-                <div class="number-box">
-                  <span>03</span>
-                </div>
-                <h2><span class="small">Subtitle</span>HOLIDAY</h2><br>
-                <div class="view"> 
-                  <a href="">View</a>
-                </div>
-              </div>
-              <div class="body">
-                <p>summer vacation stating .</p>
-                <img src="images/summer.jpg" alt="Graphic">
-              </div>
-            </div>
-        
-            <div class="demo-card demo-card--step4">
-              <div class="head">
-                <div class="number-box">
-                  <span>04</span>
-                </div>
-                <h2><span class="small">Subtitle</span>Match</h2><br>
-                <div class="view"> 
-                  <a href="">View</a>
-                </div>
-              </div>
-              <div class="body">
-                <p>College Football Match.</p>
-                <img src="images/football.jpg" alt="Graphic">
-              </div>
-            </div>
-        
-            <div class="demo-card demo-card--step5">
-              <div class="head">
-                <div class="number-box">
-                  <span>05</span>
-                </div>
-                <h2><span class="small">Subtitle</span>TOUR </h2><br>
-                <div class="view"> 
-                  <a href="">View</a>
-                </div>
-              </div>
-              <div class="body">
-                <p>College Tour For All Student.</p>
-                <img src="images/collegetur.png" alt="Graphic">
-              </div>
-            </div>
-            
-          </div>
-        </section>
-        
-            
-          </div>
-        </section>
-       
-    </div>
-      
-    </div>
+  </div>
   </main>
 
-</ul>
-</div >
+  </ul>
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -627,7 +590,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <script type="module" src="js/studentProfile.js"></script>
-  
+
   <script src="https://kit.fontawesome.com/7ef29e0724.js" crossorigin="anonymous"></script>
   <script type="module" src="js/bootDash.js"></script>
   <script src="js/event.js"></script>
