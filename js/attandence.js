@@ -501,6 +501,9 @@ function loginPage(){
   signOut(auth).then(() => {
     // Sign-out successful.
     window.location.href = "teacher-login.html";
+    // Clear the localStorage
+localStorage.clear();
+
   }).catch((error) => {
     // An error happened.
   });
