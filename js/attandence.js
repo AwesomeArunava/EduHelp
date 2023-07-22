@@ -256,7 +256,7 @@ console.log(date); // Output the current date and time in YYYY-MM-DD HH:mm:ss fo
 console.log(time);
 // deleteAllElementsInDivById('message');
 
-writeNewPost(userId, classCode, time, date, message, teacherName);
+writeNewPost(userId, classCode, time, date, message, profileName);
 
 
 
@@ -274,13 +274,13 @@ deleteAllElementsInDivById('w-input-text');
 
 // post code 
 
-function writeNewPost(userId, classCode, time, date, message, teacherName) {
+function writeNewPost(userId, classCode, time, date, message, profileName) {
   const db = getDatabase();
 
   // A post entry.
   const postData = {
                   userId: userId,
-                  name: teacherName,
+                  name: profileName,
                   message: message,
                   time: time,
                   date: date,
@@ -482,9 +482,9 @@ onChildAdded(newMsgRef, (snapshot) => {
 //   }
 // });
 
-function setFocus () {
-  document.getElementById('w-input-text').focus();
-}
+// function setFocus () {
+//   document.getElementById('w-input-text').focus();
+// }
 
 // Check authentication status on every page
 onAuthStateChanged(auth, (user) => {
