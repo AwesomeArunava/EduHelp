@@ -200,21 +200,21 @@
             <div class="row">
               <div class="col-lg-4">
                 <div class="card shadow-sm">
-                  <div class="edit" id="edit" onclick="show()">
+                  <div class="edit" id="edit">
                     <i class="fa-regular fa-pen-to-square"></i>
                   </div>
 
                   <div class="card-header bg-transparent text-center">
                     <img class="profile_img" src="images/pp.jpg" alt="" />
-                    <h3 id="student_name">Arunava Debnath</h3>
+                    <h3 id="teacher_name"></h3>
                   </div>
                   <div class="card-body">
                
                     <p class="mb-0">
-                      <strong class="pr-1">Contact No.: </strong>N/A
+                      <strong class="pr-1">Contact No.: </strong><span id="contact_number1"></span>
                     </p>
-                    <p class="mb-0">
-                      <strong class="pr-1">Department Name.: </strong>N/A
+                    <p class="mb-0" >
+                      <strong class="pr-1">Department Name.: </strong><span id="department1"></span>
                     </p>
                   </div>
                 </div>
@@ -303,6 +303,16 @@
                         <td width="2%">:</td>
                         <td><input type="text" id="blood" /></td>
                       </tr>
+                      <tr>
+                        <th width="30%">Department</th>
+                        <td width="2%">:</td>
+                        <td><input type="text" id="department" /></td>
+                      </tr>
+                      <tr>
+                        <th width="30%">Collage</th>
+                        <td width="2%">:</td>
+                        <td><input type="text" id="collage" /></td>
+                      </tr>
                     </table>
                   </div>
                 </div>
@@ -355,27 +365,27 @@
                       <tr>
                         <th width="30%">Subject 1</th>
                         <td width="2%">:</td>
-                        <td><input type="text" /></td>
+                        <td><input type="text" id="paper_1"/></td>
                       </tr>
                       <tr>
                         <th width="30%">Subject 2</th>
                         <td width="2%">:</td>
-                        <td><input type="text" /></td>
+                        <td><input type="text" id="paper_2"/></td>
                       </tr>
                       <tr>
                         <th width="30%">Subject 3</th>
                         <td width="2%">:</td>
-                        <td><input type="text" /></td>
+                        <td><input type="text" id="paper_3"/></td>
                       </tr>
                       <tr>
                         <th width="30%">Subject 4</th>
                         <td width="2%">:</td>
-                        <td><input type="text" /></td>
+                        <td><input type="text" id="paper_4"/></td>
                       </tr>
                       <tr>
                         <th width="30%">Subject 5</th>
                         <td width="2%">:</td>
-                        <td><input type="text" /></td>
+                        <td><input type="text" id="paper_5"/></td>
                       </tr>
                     </table>
                   </div>
@@ -504,7 +514,7 @@
 <!-- For subject change request from students for teachers -->
 <script src="js/subchange_teacher.js"></script>
 <script type="module" src="js/notice.js"></script>
-
+<script type="module" src="js/teacherProfile.js"></script>
 </body>
 
 </html>
